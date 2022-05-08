@@ -6,6 +6,7 @@ const scenario3 = require("./scenarios/scenario3");
 const Scenario4 = require("./scenarios/Scenario4");
 const Scenario5 = require("./scenarios/Scenario5");
 const Scenario6 = require("./scenarios/Scenario6");
+const Scenario7 = require("./scenarios/Scenario7");
 
 (async () => {
   const isClean = process.argv.slice(2);
@@ -40,4 +41,6 @@ const Scenario6 = require("./scenarios/Scenario6");
   console.log("Scenario 5 Done!");
   await Scenario6();
   console.log("Scenario 6 Done!");
+  await Scenario7();
+  console.log("Scenario 7 Done!");
 })();

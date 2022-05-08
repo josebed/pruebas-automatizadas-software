@@ -208,4 +208,20 @@ module.exports = {
     await page.screenshot({ path: `${basePath}/Confirmation.jpg` });
     await page.click(`button[class="${Constants.DeletePage.Buttons.Delete}"]`);
   },
+  CreateTag: async (page, basePath, tagTitle) => {
+    await page.click(`a[id="${constants.CreateTags.Links.Tags}"]`);
+    await new Promise((r) => setTimeout(r, 500));
+    await page.screenshot({ path: `${basePath}/TagsPre.jpg` });
+    await page.click(`a[href="${constants.CreateTags.Links.NewTag}"]`);
+    await new Promise((r) => setTimeout(r, 500));
+    await page.screenshot({ path: `${basePath}/TagsPost.jpg` });
+    await page.type(
+      `input[id="${constants.CreateTags.Inputs.TagName}"]`,
+      tagTitle
+    );
+    await page.screenshot({ path: `${basePath}/PublishPre.jpg` });
+    await page.click(`button[class="${constants.CreateTags.Buttons.Save}"]`);
+    await new Promise((r) => setTimeout(r, 500));
+    await page.screenshot({ path: `${basePath}/PublishPost.jpg` });
+  },
 };
