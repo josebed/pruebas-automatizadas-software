@@ -2,7 +2,7 @@ const puppeteer = require("puppeteer");
 const PageObjects = require("../page_objects/PageObjects");
 const Properties = require("../properties.json");
 
-const SCENARIO = "./artifacts/scenario4";
+const SCENARIO = "./artifacts/scenario6";
 
 module.exports = async () => {
   // Given a Browser with an account created
@@ -21,12 +21,20 @@ module.exports = async () => {
 
   // When I Log In and create a new Page
   await PageObjects.LogIn(page, SCENARIO);
-  await PageObjects.CreatePage(page, SCENARIO, Properties.PageTitle1);
+  await PageObjects.CreatePage(page, SCENARIO, Properties.PageTitle4);
+
+  // Then, I should see the page listed
   await page.goto("http://localhost:2368/ghost/#/pages");
   await new Promise((r) => setTimeout(r, 500));
+  await page.screenshot({ path: `${SCENARIO}/ListPages1.jpg` });
 
-  // Then, I should see the Page listed
-  await page.screenshot({ path: `${SCENARIO}/ListPages.jpg` });
+  //When I Delete such page
+  await PageObjects.DeletePage(page, SCENARIO, Properties.PageTitle4);
+
+  // Then, I shouldn't see the deleted page listed
+  await page.goto("http://localhost:2368/ghost/#/pages");
+  await new Promise((r) => setTimeout(r, 500));
+  await page.screenshot({ path: `${SCENARIO}/ListPages2.jpg` });
 
   await browser.close();
 };

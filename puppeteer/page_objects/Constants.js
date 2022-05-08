@@ -66,4 +66,12 @@ module.exports = {
         "gh-btn gh-btn-black gh-publishmenu-button gh-btn-icon ember-view",
     },
   },
+  DeletePage: {
+    Buttons: {
+      Settings: "Settings",
+      DeletePage:
+        "gh-btn gh-btn-hover-red gh-btn-icon settings-menu-delete-button",
+      Delete: "gh-btn gh-btn-red gh-btn-icon ember-view",
+    },
+  },
 };

@@ -187,4 +187,25 @@ module.exports = {
     await new Promise((r) => setTimeout(r, 500));
     await page.screenshot({ path: `${basePath}/EditPagePost.jpg` });
   },
+  DeletePage: async (page, basePath, pageTitle) => {
+    const pageID = await page.evaluate((pageTitle) => {
+      return Array.from(document.querySelectorAll("h3")).find(
+        (element) => element.innerText === pageTitle
+      ).parentElement.id;
+    }, pageTitle);
+    await page.click(`a[id="${pageID}"]`);
+    await new Promise((r) => setTimeout(r, 500));
+    await page.screenshot({ path: `${basePath}/EditPagePre.jpg` });
+    await page.click(
+      `button[title="${Constants.DeletePage.Buttons.Settings}"]`
+    );
+    await new Promise((r) => setTimeout(r, 100));
+    await page.screenshot({ path: `${basePath}/SettingsMenu.jpg` });
+    await page.click(
+      `button[class="${Constants.DeletePage.Buttons.DeletePage}"]`
+    );
+    await new Promise((r) => setTimeout(r, 100));
+    await page.screenshot({ path: `${basePath}/Confirmation.jpg` });
+    await page.click(`button[class="${Constants.DeletePage.Buttons.Delete}"]`);
+  },
 };
