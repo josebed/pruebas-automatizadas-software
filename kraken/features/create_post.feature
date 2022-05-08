@@ -4,12 +4,12 @@ Feature: Create post
 Scenario: Ingreso a la aplicación y creo un post
     #Login
     Given I navigate to page "<url>"
-    And  I wait for 5 seconds
+    And  I wait for 1 seconds
     And I enter username "<username>"
-    And I wait for 2 seconds
+    And I wait for 1 seconds
     And I enter password "<password>"
     And I click on sign in
-    And I wait for 2 seconds
+    And I wait for 1 seconds
 
     #Create post
     When I click on create post

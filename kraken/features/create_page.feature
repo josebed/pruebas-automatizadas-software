@@ -31,4 +31,4 @@ Scenario: Ingreso a la aplicación y creo una página
     And I click on pages
     And I wait for 1 seconds
     And I should see page "$$name_2"
-    And I wait for 3 seconds
+    And I wait for 1 seconds
