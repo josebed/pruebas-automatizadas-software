@@ -18,4 +18,10 @@ const scenario1 = require("./scenarios/Scenario1");
   await PageObjects.CreateBlog(page, "./artifacts/scenario1");
 
   await browser.close();
+
+  scenario1();
+  /*   scenario1();
+  scenario1();
+  scenario1();
+  scenario1(); */
 })();

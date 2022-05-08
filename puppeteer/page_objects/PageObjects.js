@@ -1,4 +1,5 @@
 const properties = require("../properties.json");
+const Constants = require("./Constants");
 const constants = require("./Constants");
 
 function findSingleelementByTagName(tag) {
@@ -25,6 +26,8 @@ module.exports = {
     );
     await page.screenshot({ path: `${basePath}/LoginPost.jpg` });
     await page.click("button[type=submit]");
+    await new Promise((r) => setTimeout(r, 500));
+    await page.screenshot({ path: `${basePath}/LoggedIn.jpg` });
   },
   CreateBlog: async (page, basePath) => {
     await page.screenshot({
@@ -58,11 +61,35 @@ module.exports = {
     await page.screenshot({
       path: `${basePath}/AdminScreenPre.jpg`,
     });
-    await page.click(`a[id="${constants.Setup.Links.GhostAdmin}"]`);
+    await page.click(`a[href="${constants.Setup.Links.GhostAdmin}"]`);
     await page.screenshot({
       path: `${basePath}/AdminScreenPost.jpg`,
     });
 
+    await new Promise((r) => setTimeout(r, 500));
+  },
+  CreatePost: async (page, basePath, postTitle) => {
+    await page.click(`a[id="${constants.CreatePost.Links.Posts}"]`);
+    await new Promise((r) => setTimeout(r, 500));
+    await page.screenshot({ path: `${basePath}/PostsPre.jpg` });
+    await page.click(`a[href="${constants.CreatePost.Links.NewPost}"]`);
+    await new Promise((r) => setTimeout(r, 500));
+    await page.screenshot({ path: `${basePath}/PostsPost.jpg` });
+    await page.type("textarea", postTitle);
+    await page.screenshot({ path: `${basePath}/PublishPre.jpg` });
+    await page.keyboard.press("Enter");
+    await new Promise((r) => setTimeout(r, 500));
+    await page.screenshot({ path: `${basePath}/PublishPost1.jpg` });
+    await page.click(`div[tabindex="${constants.CreatePost.Divs.Publish}"]`);
+    await new Promise((r) => setTimeout(r, 500));
+    await page.screenshot({ path: `${basePath}/PublishPost2.jpg` });
+    await page.click(
+      `button[class="${Constants.CreatePost.Buttons.PublishMenu}"]`
+    );
+    await new Promise((r) => setTimeout(r, 500));
+    await page.screenshot({ path: `${basePath}/PublishPost3.jpg` });
+    await page.click(`button[class="${Constants.CreatePost.Buttons.Publish}"]`);
     await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({ path: `${basePath}/PublishPost4.jpg` });
   },
 };
