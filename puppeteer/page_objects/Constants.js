@@ -47,4 +47,17 @@ module.exports = {
       Delete: "gh-btn gh-btn-red gh-btn-icon ember-view",
     },
   },
+  CreatePage: {
+    Links: {
+      Pages: "#/pages/",
+      NewPage: "#/editor/page/",
+    },
+    Divs: {
+      Publish: "0",
+    },
+    Buttons: {
+      PublishMenu:
+        "gh-btn gh-btn-black gh-publishmenu-button gh-btn-icon ember-view",
+    },
+  },
 };

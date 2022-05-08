@@ -140,4 +140,25 @@ module.exports = {
     await page.screenshot({ path: `${basePath}/Confirmation.jpg` });
     await page.click(`button[class="${Constants.DeletePost.Buttons.Delete}"]`);
   },
+  CreatePage: async (page, basePath, pageTitle) => {
+    await page.click(`a[href="${constants.CreatePage.Links.Pages}"]`);
+    await new Promise((r) => setTimeout(r, 500));
+    await page.screenshot({ path: `${basePath}/PagePre.jpg` });
+    await page.click(`a[href="${constants.CreatePage.Links.NewPage}"]`);
+    await new Promise((r) => setTimeout(r, 500));
+    await page.screenshot({ path: `${basePath}/PagePost.jpg` });
+    await page.type("textarea", pageTitle);
+    await page.screenshot({ path: `${basePath}/PublishPre.jpg` });
+    await page.keyboard.press("Enter");
+    await new Promise((r) => setTimeout(r, 500));
+    await page.screenshot({ path: `${basePath}/PublishPost1.jpg` });
+    await page.click(`div[tabindex="${constants.CreatePage.Divs.Publish}"]`);
+    await new Promise((r) => setTimeout(r, 500));
+    await page.screenshot({ path: `${basePath}/PublishPost2.jpg` });
+    await page.click(
+      `button[class="${Constants.CreatePage.Buttons.PublishMenu}"]`
+    );
+    await new Promise((r) => setTimeout(r, 500));
+    await page.screenshot({ path: `${basePath}/PublishPost3.jpg` });
+  },
 };

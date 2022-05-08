@@ -3,6 +3,7 @@ const PageObjects = require("./page_objects/PageObjects");
 const scenario1 = require("./scenarios/Scenario1");
 const scenario2 = require("./scenarios/scenario2");
 const scenario3 = require("./scenarios/scenario3");
+const Scenario4 = require("./scenarios/Scenario4");
 
 (async () => {
   const isClean = process.argv.slice(2);
@@ -30,4 +31,6 @@ const scenario3 = require("./scenarios/scenario3");
   console.log("Scenario 2 Done!");
   await scenario3();
   console.log("Scenario 3 Done!");
+  await Scenario4();
+  console.log("Scenario 4 Done!");
 })();
