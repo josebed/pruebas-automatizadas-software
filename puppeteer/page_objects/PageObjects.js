@@ -224,4 +224,26 @@ module.exports = {
     await new Promise((r) => setTimeout(r, 500));
     await page.screenshot({ path: `${basePath}/PublishPost.jpg` });
   },
+  EditTag: async (page, basePath, tagTitle, newTitle) => {
+    const tagID = await page.evaluate((tagTitle) => {
+      return Array.from(document.querySelectorAll("h3")).find(
+        (element) => element.innerText === tagTitle
+      ).parentElement.id;
+    }, tagTitle);
+    await page.click(`a[id="${tagID}"]`);
+    await new Promise((r) => setTimeout(r, 500));
+    await page.screenshot({ path: `${basePath}/EditTagPre.jpg` });
+    await page.evaluate((constants) => {
+      document.querySelector(
+        `input[id="${constants.EditTag.Inputs.TagName}"]`
+      ).value = "";
+    }, constants);
+    await page.type(
+      `input[id="${constants.EditTag.Inputs.TagName}"]`,
+      newTitle
+    );
+    await page.click(`button[class="${constants.EditTag.Buttons.Save}"]`);
+    await new Promise((r) => setTimeout(r, 500));
+    await page.screenshot({ path: `${basePath}/EditPagePost.jpg` });
+  },
 };

@@ -83,4 +83,12 @@ module.exports = {
       TagName: "tag-name",
     },
   },
+  EditTag: {
+    Inputs: {
+      TagName: "tag-name",
+    },
+    Buttons: {
+      Save: "gh-btn gh-btn-primary gh-btn-icon ember-view",
+    },
+  },
 };
