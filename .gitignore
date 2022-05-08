@@ -1,3 +1,4 @@
 /node_modules
 puppeteer/node_modules
 */test_scenarios
+.vscode
