@@ -9,6 +9,9 @@ const Scenario6 = require("./scenarios/Scenario6");
 const Scenario7 = require("./scenarios/Scenario7");
 const Scenario8 = require("./scenarios/Scenario8");
 const Scenario9 = require("./scenarios/Scenario9");
+const Scenario10 = require("./scenarios/Scenario10");
+const Scenario11 = require("./scenarios/Scenario11");
+const Scenario12 = require("./scenarios/Scenario12");
 
 (async () => {
   const isClean = process.argv.slice(2);
@@ -30,7 +33,7 @@ const Scenario9 = require("./scenarios/Scenario9");
     await browser.close();
     console.log("Blog Creation Done!");
   }
-
+  /*
   await scenario1();
   console.log("Scenario 1 Done!");
   await scenario2();
@@ -49,4 +52,11 @@ const Scenario9 = require("./scenarios/Scenario9");
   console.log("Scenario 8 Done!");
   await Scenario9();
   console.log("Scenario 9 Done!");
+  await Scenario10();
+  console.log("Escenario 10: Add navigation link - Done!");
+  await Scenario11();
+  console.log("Escenario 11: Edit navigation link - Done!");
+  */
+  await Scenario12();
+  console.log("Escenario 12: Delete navigation link - Done!");
 })();

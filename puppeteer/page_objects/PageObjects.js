@@ -1,5 +1,5 @@
 const properties = require("../properties.json");
-const Constants = require("./Constants");
+// const Constants = require("./Constants");
 const constants = require("./Constants");
 
 function findSingleelementByTagName(tag) {
@@ -264,4 +264,54 @@ module.exports = {
     await new Promise((r) => setTimeout(r, 100));
     await page.screenshot({ path: `${basePath}/ConfirmDelete.jpg` });
   },
+ AddPrimaryNavigation: async(page, basePath) => {
+  await page.click('[href="#/settings/"]');
+  await new Promise((r) => setTimeout(r, 500));
+
+  await page.screenshot({ path: `${basePath}/1-Navigation.jpg` });
+  await page.click('[href="#/settings/navigation/"]');
+  await new Promise((r) => setTimeout(r, 500));
+
+  await page.type('#settings-navigation > .gh-blognav-item .ember-text-field', 'newLink');
+  await page.type('#settings-navigation > .gh-blognav-item .gh-blognav-url > .ember-text-field', 'newLink');
+  await new Promise((r) => setTimeout(r, 500));
+  await page.screenshot({ path: `${basePath}/2-NavigationTypeInput.jpg` });
+
+  await page.click('.view-actions > button');
+  await new Promise((r) => setTimeout(r, 500));
+  await page.screenshot({ path: `${basePath}/3-NavigationAdd.jpg` });
+ },
+ EditPrimaryNavigation: async(page, basePath) => {
+  await page.click('[href="#/settings/"]');
+  await new Promise((r) => setTimeout(r, 500));
+
+  await page.screenshot({ path: `${basePath}/1-Navigation.jpg` });
+  await page.click('[href="#/settings/navigation/"]');
+  await new Promise((r) => setTimeout(r, 500));
+
+  await page.type('#settings-navigation > .sortable-objects > .js-draggableObject.draggable-object:last-child .ember-text-field', 'Edit');
+  await new Promise((r) => setTimeout(r, 500));
+  await page.screenshot({ path: `${basePath}/2-NavigationEditInput.jpg` });
+  
+  await page.click('.view-actions > button');
+  await new Promise((r) => setTimeout(r, 500));
+  await page.screenshot({ path: `${basePath}/3-NavigationEdit.jpg` });
+ },
+ DeletePrimaryNavigation: async(page, basePath) => {
+  await page.click('[href="#/settings/"]');
+  await new Promise((r) => setTimeout(r, 500));
+
+  await page.screenshot({ path: `${basePath}/1-Navigation.jpg` });
+  await page.click('[href="#/settings/navigation/"]');
+  await new Promise((r) => setTimeout(r, 500));
+
+  await page.click('#settings-navigation > .sortable-objects > .js-draggableObject.draggable-object:last-child > .gh-blognav-item > button');
+  await new Promise((r) => setTimeout(r, 500));
+  await page.screenshot({ path: `${basePath}/2-NavigationDeleteElement.jpg` });
+  
+  await page.click('.view-actions > button');
+  await new Promise((r) => setTimeout(r, 500));
+  await page.screenshot({ path: `${basePath}/3-NavigationDelete.jpg` });
+ },
+
 };
