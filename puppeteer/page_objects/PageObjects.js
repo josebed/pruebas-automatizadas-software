@@ -161,4 +161,30 @@ module.exports = {
     await new Promise((r) => setTimeout(r, 500));
     await page.screenshot({ path: `${basePath}/PublishPost3.jpg` });
   },
+  EditPage: async (page, basePath, pageTitle, newTitle) => {
+    const pageID = await page.evaluate((pageTitle) => {
+      return Array.from(document.querySelectorAll("h3")).find(
+        (element) => element.innerText === pageTitle
+      ).parentElement.id;
+    }, pageTitle);
+    await page.click(`a[id="${pageID}"]`);
+    await new Promise((r) => setTimeout(r, 500));
+    await page.screenshot({ path: `${basePath}/EditPagePre.jpg` });
+    await page.evaluate(() => {
+      document.getElementsByTagName("textarea")[0].value = "";
+    });
+    await page.type("textarea", newTitle);
+
+    const updateID = await page.evaluate(() => {
+      return Array.from(document.querySelectorAll("span")).find(
+        (element) => element.innerText === "Update "
+      ).parentElement.id;
+    });
+
+    await page.click(`div[id="${updateID}"]`);
+    await new Promise((r) => setTimeout(r, 100));
+    await page.click(`button[class="${Constants.EditPage.Buttons.Update}"]`);
+    await new Promise((r) => setTimeout(r, 500));
+    await page.screenshot({ path: `${basePath}/EditPagePost.jpg` });
+  },
 };
