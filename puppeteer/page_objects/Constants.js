@@ -21,9 +21,6 @@ module.exports = {
       Posts: "ember26",
       NewPost: "#/editor/post/",
     },
-    TextArea: {
-      PostTitle: "ember169",
-    },
     Divs: {
       Publish: "0",
     },
@@ -72,6 +69,32 @@ module.exports = {
       DeletePage:
         "gh-btn gh-btn-hover-red gh-btn-icon settings-menu-delete-button",
       Delete: "gh-btn gh-btn-red gh-btn-icon ember-view",
+    },
+  },
+  CreateTags: {
+    Links: {
+      Tags: "ember29",
+      NewTag: "#/tags/new/",
+    },
+    Buttons: {
+      Save: "gh-btn gh-btn-primary gh-btn-icon ember-view",
+    },
+    Inputs: {
+      TagName: "tag-name",
+    },
+  },
+  EditTag: {
+    Inputs: {
+      TagName: "tag-name",
+    },
+    Buttons: {
+      Save: "gh-btn gh-btn-primary gh-btn-icon ember-view",
+    },
+  },
+  DeleteTag: {
+    Buttons: {
+      Delete: "gh-btn gh-btn-red gh-btn-icon",
+      ConfirmDelete: "gh-btn gh-btn-red gh-btn-icon ember-view",
     },
   },
 };
