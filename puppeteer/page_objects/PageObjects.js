@@ -13,8 +13,8 @@ module.exports = {
 
     return h1 !== "Sign in to Testing.";
   },
-  LogIn: async (page, scenario) => {
-    await page.screenshot({ path: `../artifacts/${scenario}/LoginPre.jpg` });
+  LogIn: async (page, basePath) => {
+    await page.screenshot({ path: `${basePath}/LoginPre.jpg` });
     await page.type(
       `input[name="${constants.Login.Inputs.Identification}"]`,
       properties.email
@@ -23,12 +23,12 @@ module.exports = {
       `input[name="${constants.Login.Inputs.Password}"]`,
       properties.password
     );
-    await page.screenshot({ path: `../artifacts/${scenario}/LoginPost.jpg` });
+    await page.screenshot({ path: `${basePath}/LoginPost.jpg` });
     await page.click("button[type=submit]");
   },
-  CreateBlog: async (page) => {
+  CreateBlog: async (page, basePath) => {
     await page.screenshot({
-      path: `../artifacts/${scenario}/CreateBlogPre.jpg`,
+      path: `${basePath}/CreateBlogPre.jpg`,
     });
     await page.type(
       `input[name="${constants.Setup.Inputs.title}"]`,
@@ -48,7 +48,7 @@ module.exports = {
     );
 
     await page.screenshot({
-      path: `../artifacts/${scenario}/CreateBlogPost.jpg`,
+      path: `${basePath}/CreateBlogPost.jpg`,
     });
 
     await page.click("button[type=submit]");
@@ -56,11 +56,11 @@ module.exports = {
     await new Promise((r) => setTimeout(r, 1000));
 
     await page.screenshot({
-      path: `../artifacts/${scenario}/AdminScreenPre.jpg`,
+      path: `${basePath}/AdminScreenPre.jpg`,
     });
     await page.click(`a[id="${constants.Setup.Links.GhostAdmin}"]`);
     await page.screenshot({
-      path: `../artifacts/${scenario}/AdminScreenPost.jpg`,
+      path: `${basePath}/AdminScreenPost.jpg`,
     });
 
     await new Promise((r) => setTimeout(r, 1000));
