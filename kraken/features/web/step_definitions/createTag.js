@@ -37,7 +37,7 @@ When('I click on delete tag', async function(){
     return await element.click();
 });
 
-When('I click on confirm delete tag', async function(){
+Then('I click on confirm delete tag', async function(){
     let element = await this.driver.$('.modal-footer > button:nth-child(2)');
     return await element.click();
 })

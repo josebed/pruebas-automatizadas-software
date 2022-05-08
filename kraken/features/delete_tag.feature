@@ -28,5 +28,5 @@ Scenario: Ingreso a la aplicación y creo un tag y lo elimino
     #Delete Tag
     And I click on delete tag
     And I wait for 1 seconds
-    And I click on confirm delete tag
+    Then I click on confirm delete tag
     And I wait for 5 seconds

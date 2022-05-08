@@ -68,4 +68,19 @@ When('I click on delete', async function(){
 Then('I click on confirm delete', async function(){
     let element = await this.driver.$('.gh-btn-red');
     return await element.click();
-})
+});
+
+Then('I click on latest post', async function(){
+    let element = await this.driver.$('.posts-list > li:nth-child(2) > a:nth-child(1) > h3:nth-child(1)');
+    return element.click();
+});
+
+Then('I click on custom-excerp', async function(){
+    let element = await this.driver.$('#custom-excerpt');
+    return element.click();
+});
+
+Then('I click on feature post', async function(){
+    let element = await this.driver.$('label[for="featured"]');
+    return element.click();
+});
