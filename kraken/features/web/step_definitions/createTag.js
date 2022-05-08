@@ -31,3 +31,13 @@ Then('I should see tag {kraken-string}', async function(tagName){
     let element = await this.driver.$(selector).getText();
     assert.equal(element,tagName);
 });
+
+When('I click on delete tag', async function(){
+    let element = await this.driver.$('.gh-btn-red');
+    return await element.click();
+});
+
+When('I click on confirm delete tag', async function(){
+    let element = await this.driver.$('.modal-footer > button:nth-child(2)');
+    return await element.click();
+})

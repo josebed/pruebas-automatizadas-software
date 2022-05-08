@@ -34,7 +34,7 @@ Then('I click on posts', async function(){
 Then('I click on publish', async function(){
     let element = await this.driver.$('div.ember-basic-dropdown-trigger');
     return await element.click();
-})
+});
 
 Then('I click on set it live now', async function(){
     let element = await this.driver.$('.gh-publishmenu-radio-button');
@@ -44,7 +44,7 @@ Then('I click on set it live now', async function(){
 Then('I click on publish button', async function(){
     let element = await this.driver.$('.gh-publishmenu-button');
     return await element.click();
-})
+});
 
 Then('I click on confirm publish', async function(){
     let element = await this.driver.$('.gh-btn-black ');
@@ -54,4 +54,18 @@ Then('I click on confirm publish', async function(){
 Then('I should see post published', async function(){
     let element = await this.driver.$('.gh-editor-post-status > span:nth-child(1) > div:nth-child(1)').getText();
     assert.equal(element, "Published");
+});
+
+When('I click on settings', async function(){
+    let element = await this.driver.$('button[title="Settings"]');
+    return await element.click();
+});
+
+When('I click on delete', async function(){
+    let element = await this.driver.$('.settings-menu-delete-button');
+    return await element.click();
+});
+Then('I click on confirm delete', async function(){
+    let element = await this.driver.$('.gh-btn-red');
+    return await element.click();
 })
