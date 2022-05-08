@@ -246,4 +246,22 @@ module.exports = {
     await new Promise((r) => setTimeout(r, 500));
     await page.screenshot({ path: `${basePath}/EditPagePost.jpg` });
   },
+  DeleteTag: async (page, basePath, tagTitle, newTitle) => {
+    const tagID = await page.evaluate((tagTitle) => {
+      return Array.from(document.querySelectorAll("h3")).find(
+        (element) => element.innerText === tagTitle
+      ).parentElement.id;
+    }, tagTitle);
+    await page.click(`a[id="${tagID}"]`);
+    await new Promise((r) => setTimeout(r, 500));
+    await page.screenshot({ path: `${basePath}/DeleteTagPre.jpg` });
+    await page.click(`button[class="${constants.DeleteTag.Buttons.Delete}"]`);
+    await new Promise((r) => setTimeout(r, 100));
+    await page.screenshot({ path: `${basePath}/DeleteTagPost.jpg` });
+    await page.click(
+      `button[class="${constants.DeleteTag.Buttons.ConfirmDelete}"]`
+    );
+    await new Promise((r) => setTimeout(r, 100));
+    await page.screenshot({ path: `${basePath}/ConfirmDelete.jpg` });
+  },
 };

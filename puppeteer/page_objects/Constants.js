@@ -91,4 +91,10 @@ module.exports = {
       Save: "gh-btn gh-btn-primary gh-btn-icon ember-view",
     },
   },
+  DeleteTag: {
+    Buttons: {
+      Delete: "gh-btn gh-btn-red gh-btn-icon",
+      ConfirmDelete: "gh-btn gh-btn-red gh-btn-icon ember-view",
+    },
+  },
 };
