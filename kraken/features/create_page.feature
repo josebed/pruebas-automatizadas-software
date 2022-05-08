@@ -1,7 +1,7 @@
-Feature: Create post
+Feature: Create page
 
 @user1 @web
-Scenario: Ingreso a la aplicación y creo un post
+Scenario: Ingreso a la aplicación y creo una página
     #Login
     Given I navigate to page "<url>"
     And  I wait for 5 seconds
@@ -11,25 +11,24 @@ Scenario: Ingreso a la aplicación y creo un post
     And I click on sign in
     And I wait for 2 seconds
 
-    #Create post
-    When I click on create post
+    #Create page
+    When I click on pages
     And I wait for 1 seconds
+    And I click on new page
     And I click on write title
-    And I enter text "$name_1"
+    And I enter text "$name_2"
     And I wait for 1 seconds
     And I click on editor
     And I wait for 1 seconds
     And I enter text "$string"
     And I wait for 1 seconds
 
-    #Preview post
+    #Preview page
     Then I click on preview
     And I wait for 1 seconds
-
-    #List posts
     And I click on back
     And I wait for 1 seconds
-    And I click on posts
+    And I click on pages
     And I wait for 1 seconds
-    And I should see post "$$name_1"
+    And I should see page "$$name_2"
     And I wait for 3 seconds

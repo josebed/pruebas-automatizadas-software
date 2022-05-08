@@ -1,16 +1,16 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
 const assert = require('assert');
 
-Then('I click on create post', async function(){
+When('I click on create post', async function(){
     let element = await this.driver.$('#ember27');
     return await element.click();
 });
 
-Then('I click on write post title', async function(){
-    let element = await this.driver.$('.gh-editor-title');
+When('I click on write title', async function(){
+    let element = await this.driver.$('textarea.gh-editor-title');
     return await element.click();
 });
-Then('I click on editor', async function(){
+When('I click on editor', async function(){
     let element = await this.driver.$('.koenig-editor__editor');
     return await element.click();
 });
@@ -25,7 +25,6 @@ Then('I click on back', async function(){
 Then('I should see post {kraken-string}', async function(postTitle){
     let element = await this.driver.$('.posts-list > li:nth-child(2) > a:nth-child(1) > h3:nth-child(1)').getText();
     assert.equal(element,postTitle);
-    console.log(element);
 });
 Then('I click on posts', async function(){
     let element = await this.driver.$('a[href="#/posts/"]');
