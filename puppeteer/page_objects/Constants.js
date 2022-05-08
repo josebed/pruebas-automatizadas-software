@@ -33,4 +33,18 @@ module.exports = {
         "gh-btn gh-btn-black gh-publishmenu-button gh-btn-icon ember-view",
     },
   },
+  EditPost: {
+    Buttons: {
+      Update:
+        "gh-btn gh-btn-black gh-publishmenu-button gh-btn-icon ember-view",
+    },
+  },
+  DeletePost: {
+    Buttons: {
+      Settings: "Settings",
+      DeletePost:
+        "gh-btn gh-btn-hover-red gh-btn-icon settings-menu-delete-button",
+      Delete: "gh-btn gh-btn-red gh-btn-icon ember-view",
+    },
+  },
 };

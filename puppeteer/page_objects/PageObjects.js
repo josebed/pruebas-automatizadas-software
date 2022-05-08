@@ -92,4 +92,52 @@ module.exports = {
     await new Promise((r) => setTimeout(r, 1000));
     await page.screenshot({ path: `${basePath}/PublishPost4.jpg` });
   },
+  EditPost: async (page, basePath, postTitle, newTitle) => {
+    const postID = await page.evaluate((postTitle) => {
+      return Array.from(document.querySelectorAll("h3")).find(
+        (element) => element.innerText === postTitle
+      ).parentElement.id;
+    }, postTitle);
+    await page.click(`a[id="${postID}"]`);
+    await new Promise((r) => setTimeout(r, 500));
+    await page.screenshot({ path: `${basePath}/EditPostPre.jpg` });
+    await page.evaluate(() => {
+      document.getElementsByTagName("textarea")[0].value = "";
+    });
+    await page.type("textarea", newTitle);
+
+    const updateID = await page.evaluate(() => {
+      return Array.from(document.querySelectorAll("span")).find(
+        (element) => element.innerText === "Update "
+      ).parentElement.id;
+    });
+
+    await page.click(`div[id="${updateID}"]`);
+    await new Promise((r) => setTimeout(r, 100));
+    await page.click(`button[class="${Constants.EditPost.Buttons.Update}"]`);
+    await new Promise((r) => setTimeout(r, 500));
+    await page.screenshot({ path: `${basePath}/EditPostPost.jpg` });
+  },
+
+  DeletePost: async (page, basePath, postTitle) => {
+    const postID = await page.evaluate((postTitle) => {
+      return Array.from(document.querySelectorAll("h3")).find(
+        (element) => element.innerText === postTitle
+      ).parentElement.id;
+    }, postTitle);
+    await page.click(`a[id="${postID}"]`);
+    await new Promise((r) => setTimeout(r, 500));
+    await page.screenshot({ path: `${basePath}/EditPostPre.jpg` });
+    await page.click(
+      `button[title="${Constants.DeletePost.Buttons.Settings}"]`
+    );
+    await new Promise((r) => setTimeout(r, 100));
+    await page.screenshot({ path: `${basePath}/SettingsMenu.jpg` });
+    await page.click(
+      `button[class="${Constants.DeletePost.Buttons.DeletePost}"]`
+    );
+    await new Promise((r) => setTimeout(r, 100));
+    await page.screenshot({ path: `${basePath}/Confirmation.jpg` });
+    await page.click(`button[class="${Constants.DeletePost.Buttons.Delete}"]`);
+  },
 };
