@@ -3,3 +3,4 @@ puppeteer/node_modules
 */test_scenarios
 .vscode
 node_modules
+.idea/*
