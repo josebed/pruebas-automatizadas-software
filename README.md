@@ -56,3 +56,44 @@
  | Borrar miembro | Realizar login, ir miembros, seleccionar miembor, borrar, confimar borrado y  validar que no esta en la lista de miembros|
  | Cambiar a modo oscuro | Realizar login, cambiar a modo oscuro y validar su activacion | 
  | Editar perfil | Realizar login, ingredar a perfil, modificar nombre y ubicacino y guarda cambios | 
+
+## Proceso Para Ejecutar
+
+## Puppeteer
+
+En el siguiente apartado se tratará una guía para ejecutar las pruebas en un entorno local usando puppeteer.
+
+### Requerimientos
+
+Node 16.13.0
+ghost
+
+Se cuenta con un tutorial para la isntalación de ghost según la documentación oficial en el siguiente [enlace](https://ghost.org/docs/ghost-cli/#ghost-install)
+
+### Ejecución
+
+#### Instalar ghost
+
+Luego de tener instalado el node y el ghost, se debe correr el siguiente comando sobre una carpeta vacía en la cual se van a ejecutar las pruebas:
+```sh
+ghost install local
+```
+
+Al terminar, se ejecutará ghost en la ruta local localhost:2368. En caso de ser la primera vez que se instala es recomendable saltarse el próximo paso e ir directamente a la ejecución de las pruebas.
+
+#### Ejecutar ghost
+
+En caso de ya tener una versión instalada de ghost, se recomienda borrar el archivo .db que hay en la carpeta data para poder correr como nuevo la instalación de ghost usando luego el comando:
+```sh
+ghost start
+```
+#### Correr las Pruebas
+En caso de ser la primera vez que se corre el script (o de tener vacía la carpeta data como se sugiere que se haga), se debe ejecturar el siguiente comando dentro de la carpeta puppeteer:
+```sh
+node index.js --clean
+```
+Esto va a permitir crear el blog usando la información en el archivo properties.json
+
+#### Revisión de artifacts
+
+Al terminar, podrá verse en la carpeta artifacts una carpeta con cada escenario retratando paso a paso una captura de pantalla del proceso que se llevó a cabo.
