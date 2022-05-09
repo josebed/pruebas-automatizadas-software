@@ -97,3 +97,14 @@ Esto va a permitir crear el blog usando la información en el archivo properties
 #### Revisión de artifacts
 
 Al terminar, podrá verse en la carpeta artifacts una carpeta con cada escenario retratando paso a paso una captura de pantalla del proceso que se llevó a cabo.
+
+## Pros y Contra de las herramientas
+
+### Puppeteer
+
+| Pros | Contras | 
+| ------ | ----- |
+| Permite la creación estructurada de los flujos de manera que sean entendibles | Los flujos deben considerar la latencia de la página que se está probando y eso a nivel de código es verboso |
+| Recrea de manera fiel lo que el usuario final va a ver, al renderizar las vistas en un explorador | Los flujos, al considerar la latencia, pueden tomar demasiado tiempo si son varios flujos que no pueden reutilizar escenarios o que deben ser ejecutados independientemente |
+| Está escrito en javascript, lo cual hace fácil su desarrollo para la mayoría de desarrolladores frontend y fullstack | Está optimizado para ejecutar flujos en el frontend |
+| Permite la captura de evidencias lo cual puede ayudar para documentar ciertos flujos | No trae herramientas para hacer validaciones incluidas, debe incluirse librerías externas |
