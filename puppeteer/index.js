@@ -18,6 +18,8 @@ const Scenario15 = require("./scenarios/Scenario15");
 const Scenario16 = require("./scenarios/Scenario16");
 const Scenario17 = require("./scenarios/Scenario17");
 const Scenario18 = require("./scenarios/Scenario18");
+const Scenario19 = require("./scenarios/Scenario19");
+const Scenario20 = require("./scenarios/Scenario20");
 
 (async () => {
   const isClean = process.argv.slice(2);
@@ -39,6 +41,7 @@ const Scenario18 = require("./scenarios/Scenario18");
     await browser.close();
     console.log("Blog Creation Done!");
   }
+  /*
   await scenario1();
   console.log("Scenario 1 Done!");
   await scenario2();
@@ -75,4 +78,9 @@ const Scenario18 = require("./scenarios/Scenario18");
   console.log("Escenario 17: Login + Add member + Edit member - Done!");
   await Scenario18();
   console.log("Escenario 18: Login + Add member + Delete member - Done!");
+  await Scenario19();
+  console.log("Escenario 19: Login + Active dark mode - Done!");
+  */
+  await Scenario20();
+  console.log("Escenario 20: Login + Edit name and ubication profile - Done!");
 })();

@@ -421,5 +421,29 @@ module.exports = {
   await new Promise((r) => setTimeout(r, 500));
   await page.screenshot({ path: `${basePath}/4-MemberSaveChange.jpg` });
  },
+ ActivateDarkMode: async(page, basePath) => {
+  await page.screenshot({ path: `${basePath}/1-DarkMode.jpg` });
+  await page.click('.nightshift-toggle');
+  await new Promise((r) => setTimeout(r, 500));
+  await page.screenshot({ path: `${basePath}/2-DarkModeActived.jpg` });
+ },
+  EditProfile: async(page, basePath) => {
+    await page.click('.gh-user-avatar');
+    await new Promise((r) => setTimeout(r, 500));
+    await page.screenshot({ path: `${basePath}/1-Profile.jpg` });
+
+    await page.click('.dropdown-menu[role="menu"] > li:nth-child(4)');
+    await new Promise((r) => setTimeout(r, 500));
+    await page.screenshot({ path: `${basePath}/2-ProfileMenu.jpg` });
+    
+    await page.type('#user-name', ' Edited');
+    await page.type('#user-location', 'Un lugar del mundo');
+    await new Promise((r) => setTimeout(r, 500));
+    await page.screenshot({ path: `${basePath}/3-ProfileEditField.jpg` });
+
+    await page.click('.view-actions > button');
+    await new Promise((r) => setTimeout(r, 500));
+    await page.screenshot({ path: `${basePath}/4-ProfileSave.jpg` });
+ },
 
 };
