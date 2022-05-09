@@ -45,4 +45,13 @@
  | Crear y modificar page | Realizar login, crear page, listar pages, click en la recién creada, click en settings, modificar datos | 
  | Crear y eliminar page | Realizar login, crear page, click en settings, eliminar y confirmar | 
  | Crear y eliminar tag | Realizar login, crear tag, click en guardar, click en borrar, confirmar | 
+ | Adicionar link en barra de navegacion | Realizar login, ir a navegacion, adicionar elemento y guardar cambios|
+ | Editar link en barra de navegacion | Realizar login, ir a navegacion, cick en elemento, editar lable, editar URL y  guardar cambios|
+ | Borrar link en barra de navegacion | Realizar login, ir a navegacion, cick en borrar elemento y  guardar cambios|
+ | Invitar usuario con rol de editar | Realizar login, ir a staff, llenar formulario, enviar invitacion y validar listado de usuarios invitados | 
+ | Invitar usuario 2 veces el mismo usuario | Realizar login, ir a staff, llenar formulario, enviar invitacion y validar que no permita enviar la invitacion | 
+ | Revocar invitacion a usuario | Realizar login, ir a staff, seleccionar de la lista usuario y revokar invitacion, validar que el usuario se quiteo de la lista de usuarios invitados| 
+ | Agregar miembro | Realizar login, ir miembros, click en nuevo miembor, llenar el formulario, guardar los cambios, validar que esta en la lista de miembros|
+ | Editar miembro | Realizar login, ir miembros, seleccionar miembor, editar cambo en formulario, guardar los cambios, validar que esta en la lista de miembros editado|
+ | Borrar miembro | Realizar login, ir miembros, seleccionar miembor, borrar, confimar borrado y  validar que no esta en la lista de miembros|
  | Cambiar a modo oscuro | Realizar login, cambiar a modo oscuro | 
