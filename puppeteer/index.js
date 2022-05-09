@@ -41,7 +41,7 @@ const Scenario20 = require("./scenarios/Scenario20");
     await browser.close();
     console.log("Blog Creation Done!");
   }
-  /*
+
   await scenario1();
   console.log("Scenario 1 Done!");
   await scenario2();
@@ -69,9 +69,13 @@ const Scenario20 = require("./scenarios/Scenario20");
   await Scenario13();
   console.log("Escenario 13: Login + Invite Editor Staff - Done!");
   await Scenario14();
-  console.log("Escenario 14: Login + Invite Editor Staff + Invite Editor Staff Again - Done!");
+  console.log(
+    "Escenario 14: Login + Invite Editor Staff + Invite Editor Staff Again - Done!"
+  );
   await Scenario15();
-  console.log("Escenario 15: Login + Invite Editor Staff + Revoke invited - Done!");
+  console.log(
+    "Escenario 15: Login + Invite Editor Staff + Revoke invited - Done!"
+  );
   await Scenario16();
   console.log("Escenario 16: Login + Add member - Done!");
   await Scenario17();
@@ -80,7 +84,6 @@ const Scenario20 = require("./scenarios/Scenario20");
   console.log("Escenario 18: Login + Add member + Delete member - Done!");
   await Scenario19();
   console.log("Escenario 19: Login + Active dark mode - Done!");
-  */
   await Scenario20();
   console.log("Escenario 20: Login + Edit name and ubication profile - Done!");
 })();
