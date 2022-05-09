@@ -55,3 +55,4 @@
  | Editar miembro | Realizar login, ir miembros, seleccionar miembor, editar cambo en formulario, guardar los cambios, validar que esta en la lista de miembros editado|
  | Borrar miembro | Realizar login, ir miembros, seleccionar miembor, borrar, confimar borrado y  validar que no esta en la lista de miembros|
  | Cambiar a modo oscuro | Realizar login, cambiar a modo oscuro y validar su activacion | 
+ | Editar perfil | Realizar login, ingredar a perfil, modificar nombre y ubicacino y guarda cambios | 
