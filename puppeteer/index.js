@@ -12,6 +12,12 @@ const Scenario9 = require("./scenarios/Scenario9");
 const Scenario10 = require("./scenarios/Scenario10");
 const Scenario11 = require("./scenarios/Scenario11");
 const Scenario12 = require("./scenarios/Scenario12");
+const Scenario13 = require("./scenarios/Scenario13");
+const Scenario14 = require("./scenarios/Scenario14");
+const Scenario15 = require("./scenarios/Scenario15");
+const Scenario16 = require("./scenarios/Scenario16");
+const Scenario17 = require("./scenarios/Scenario17");
+const Scenario18 = require("./scenarios/Scenario18");
 
 (async () => {
   const isClean = process.argv.slice(2);
@@ -33,7 +39,6 @@ const Scenario12 = require("./scenarios/Scenario12");
     await browser.close();
     console.log("Blog Creation Done!");
   }
-  /*
   await scenario1();
   console.log("Scenario 1 Done!");
   await scenario2();
@@ -53,10 +58,21 @@ const Scenario12 = require("./scenarios/Scenario12");
   await Scenario9();
   console.log("Scenario 9 Done!");
   await Scenario10();
-  console.log("Escenario 10: Add navigation link - Done!");
+  console.log("Escenario 10: Login + Add navigation link - Done!");
   await Scenario11();
-  console.log("Escenario 11: Edit navigation link - Done!");
-  */
+  console.log("Escenario 11: Login + Edit navigation link - Done!");
   await Scenario12();
-  console.log("Escenario 12: Delete navigation link - Done!");
+  console.log("Escenario 12: Login + Delete navigation link - Done!");
+  await Scenario13();
+  console.log("Escenario 13: Login + Invite Editor Staff - Done!");
+  await Scenario14();
+  console.log("Escenario 14: Login + Invite Editor Staff + Invite Editor Staff Again - Done!");
+  await Scenario15();
+  console.log("Escenario 15: Login + Invite Editor Staff + Revoke invited - Done!");
+  await Scenario16();
+  console.log("Escenario 16: Login + Add member - Done!");
+  await Scenario17();
+  console.log("Escenario 17: Login + Add member + Edit member - Done!");
+  await Scenario18();
+  console.log("Escenario 18: Login + Add member + Delete member - Done!");
 })();

@@ -1,5 +1,5 @@
 const properties = require("../properties.json");
-// const Constants = require("./Constants");
+const Constants = require("./Constants");
 const constants = require("./Constants");
 
 function findSingleelementByTagName(tag) {
@@ -312,6 +312,114 @@ module.exports = {
   await page.click('.view-actions > button');
   await new Promise((r) => setTimeout(r, 500));
   await page.screenshot({ path: `${basePath}/3-NavigationDelete.jpg` });
+ },
+ InviteEditorStaff: async(page, basePath) => {
+  await page.click('[href="#/settings/"]');
+  await new Promise((r) => setTimeout(r, 500));
+
+  await page.click('[href="#/settings/staff/"]');
+  await new Promise((r) => setTimeout(r, 500));
+  await page.screenshot({ path: `${basePath}/1-Staff.jpg` });
+
+  await page.click('.view-actions > button');
+  await new Promise((r) => setTimeout(r, 500));
+  await page.screenshot({ path: `${basePath}/2-StaffInvitePeople.jpg` });
+
+  await page.type('#new-user-email', 'puppeteer@gmail.com');
+  await page.click('.gh-roles-container > .gh-radio:nth-child(3)');
+  await new Promise((r) => setTimeout(r, 500));
+  await page.screenshot({ path: `${basePath}/3-StaffFillForm.jpg` });
+
+  await page.click('.modal-footer > button');
+  await new Promise((r) => setTimeout(r, 500));
+  await page.screenshot({ path: `${basePath}/4-StaffInvited.jpg` });
+ },
+ InviteEditorStaffAgain: async(page, basePath) => {
+  await page.click('[href="#/settings/"]');
+  await new Promise((r) => setTimeout(r, 500));
+
+  await page.click('[href="#/settings/staff/"]');
+  await new Promise((r) => setTimeout(r, 500));
+  await page.screenshot({ path: `${basePath}/1-Staff.jpg` });
+
+  await page.click('.view-actions > button');
+  await new Promise((r) => setTimeout(r, 500));
+  await page.screenshot({ path: `${basePath}/2-StaffInvitePeople.jpg` });
+
+  await page.type('#new-user-email', 'puppeteer@gmail.com');
+  await page.click('.gh-roles-container > .gh-radio:nth-child(3)');
+  await new Promise((r) => setTimeout(r, 500));
+  await page.screenshot({ path: `${basePath}/3-StaffFillForm.jpg` });
+
+  await page.click('.modal-footer > button');
+  await new Promise((r) => setTimeout(r, 500));
+  await page.screenshot({ path: `${basePath}/4-StaffInvitedError.jpg` });
+ },
+ RevokeInviteStaff: async(page, basePath) => {
+  await page.click('[href="#/settings/"]');
+  await new Promise((r) => setTimeout(r, 500));
+
+  await page.click('[href="#/settings/staff/"]');
+  await new Promise((r) => setTimeout(r, 500));
+  await page.screenshot({ path: `${basePath}/1-Staff.jpg` });
+
+  await page.click('a[href="#revoke"]');
+  await new Promise((r) => setTimeout(r, 500));
+  await page.screenshot({ path: `${basePath}/0-StaffRevokeInvitation.jpg` });
+ },
+ AddMember: async(page, basePath) => {
+  await page.click('[href="#/members/"]');
+  await new Promise((r) => setTimeout(r, 500));
+  await page.screenshot({ path: `${basePath}/1-Member.jpg` });
+
+  await page.click('[href="#/members/new/"]');
+  await new Promise((r) => setTimeout(r, 500));
+  await page.screenshot({ path: `${basePath}/2-MemberNew.jpg` });
+  
+  await page.type('#member-name', 'puppeteer');
+  await page.type('#member-email', 'puppeteer@gmail.com');
+  await new Promise((r) => setTimeout(r, 500));
+  await page.screenshot({ path: `${basePath}/3-MemberFillForm.jpg` });
+
+  await page.click('.view-actions > button');
+  await new Promise((r) => setTimeout(r, 500));
+  await page.screenshot({ path: `${basePath}/4-MemberSave.jpg` });
+ },
+ EditMember: async(page, basePath) => {
+  await page.click('[href="#/members/"]');
+  await new Promise((r) => setTimeout(r, 500));
+  await page.screenshot({ path: `${basePath}/1-Member.jpg` });
+
+  await page.click('tbody > tr');
+  await new Promise((r) => setTimeout(r, 500));
+  await page.screenshot({ path: `${basePath}/2-MemberEdit.jpg` });
+  
+  await page.type('#member-name', 'Edited');
+  await new Promise((r) => setTimeout(r, 500));
+  await page.screenshot({ path: `${basePath}/3-MemberEditForm.jpg` });
+
+  await page.click('.view-actions > button');
+  await new Promise((r) => setTimeout(r, 500));
+  await page.screenshot({ path: `${basePath}/4-MemberSave.jpg` });
+ },
+ DeleteMember: async(page, basePath) => {
+  await page.click('[href="#/members/"]');
+  await new Promise((r) => setTimeout(r, 500));
+  await page.screenshot({ path: `${basePath}/1-Member.jpg` });
+
+  await page.click('tbody > tr');
+  await new Promise((r) => setTimeout(r, 500));
+  await page.screenshot({ path: `${basePath}/2-MemberSelected.jpg` });
+  
+  await page.click('.view-actions > .dropdown > button');
+  await page.click('.view-actions > .dropdown > .dropdown > li:last-child');
+  await new Promise((r) => setTimeout(r, 500));
+  await page.screenshot({ path: `${basePath}/3-MemberDelete.jpg` });
+
+  await page.click('.modal-footer > button:last-child');
+  await page.click('.view-actions > button');
+  await new Promise((r) => setTimeout(r, 500));
+  await page.screenshot({ path: `${basePath}/4-MemberSaveChange.jpg` });
  },
 
 };
