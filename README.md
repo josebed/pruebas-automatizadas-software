@@ -98,6 +98,20 @@ Esto va a permitir crear el blog usando la información en el archivo properties
 
 Al terminar, podrá verse en la carpeta artifacts una carpeta con cada escenario retratando paso a paso una captura de pantalla del proceso que se llevó a cabo.
 
+## Kraken
+### Software:
+1. Node js, v16.13.0
+1. Kraken: descargar siguiendo https://thesoftwaredesignlab.github.io/KrakenMobile/
+2. Ghost versión 4.42, con la configuración incial: crear usuario y sitio.
+### Ejecución:
+1. Clonar el repositorio https://github.com/josebed/pruebas-automatizadas-software, branch main
+2. Ubicarse dentro del path kraken
+3. Ejecutar npm install
+4. Instalar kraken local: npm install kraken-node
+5. Abrir el archivos properties.json y cambiar las credenciales: url, username y password según haya configurado el ambiente.
+6. Ejecutar los escenarios: ./node_modules/kraken-node/bin/kraken-node run create_post.feature --properties=properties.json
+7. En la carpete reports se alamacenarán los reportes de la ejecución.
+
 ## Pros y Contra de las herramientas
 
 ### Puppeteer
@@ -108,3 +122,13 @@ Al terminar, podrá verse en la carpeta artifacts una carpeta con cada escenario
 | Recrea de manera fiel lo que el usuario final va a ver, al renderizar las vistas en un explorador | Los flujos, al considerar la latencia, pueden tomar demasiado tiempo si son varios flujos que no pueden reutilizar escenarios o que deben ser ejecutados independientemente |
 | Está escrito en javascript, lo cual hace fácil su desarrollo para la mayoría de desarrolladores frontend y fullstack | Está optimizado para ejecutar flujos en el frontend |
 | Permite la captura de evidencias lo cual puede ayudar para documentar ciertos flujos | No trae herramientas para hacer validaciones incluidas, debe incluirse librerías externas |
+
+### Kraken
+| Pros | Contras | 
+| ------ | ----- |
+| Prueba el flujo y no se acopla a posiciones      |  Se acopla si el nombre del boton cambia de nombre de clase o id     |
+| se puede probar un flujo largo       |  toma muchas horas\hombre para realisar la preuba 2e2      |
+| permite ingresar texto aleatori o base      |    el texto aleatori podria danar el flujo esperado       |
+| Es un excelente tipo de prueba caja negra       |  se acopla a los botones y no todas las veces se es presiso con el flujo de objetos HTML       | 
+| El lenguaje para escribir los pasos con ghiven-ghen-then es intuitivo | toma tiempo en escribir los escenarios  |
+| Toma capturas del flujo para hacer un debbug preciso  | toma tiempo en procesar pruebas largas  |
