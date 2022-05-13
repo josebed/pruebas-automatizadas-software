@@ -8,13 +8,16 @@ Scenario: Ingreso a la aplicación y creo una página
     And I enter username "<username>"
     And I wait for 1 seconds
     And I enter password "<password>"
+    And I take one screenshot "./artifacts/scenario2/login.png"
     And I click on sign in
     And I wait for 2 seconds
 
     #Create page
     When I click on pages
     And I wait for 1 seconds
+    And I take one screenshot "./artifacts/scenario2/pages_list.png"
     And I click on new page
+    And I take one screenshot "./artifacts/scenario2/new_page.png"
     And I click on write title
     And I enter text "$name_2"
     And I wait for 1 seconds
@@ -26,6 +29,7 @@ Scenario: Ingreso a la aplicación y creo una página
     #Preview page
     Then I click on preview
     And I wait for 1 seconds
+    And I take one screenshot "./artifacts/scenario2/preview_page.png"
     And I click on back
     And I wait for 1 seconds
     And I click on pages
