@@ -68,7 +68,7 @@ En el siguiente apartado se tratará una guía para ejecutar las pruebas en un e
 Node 16.13.0
 ghost
 
-Se cuenta con un tutorial para la isntalación de ghost según la documentación oficial en el siguiente [enlace](https://ghost.org/docs/ghost-cli/#ghost-install)
+Se cuenta con un tutorial para la instalación de ghost según la documentación oficial en el siguiente [enlace](https://ghost.org/docs/ghost-cli/#ghost-install)
 
 ### Ejecución
 
