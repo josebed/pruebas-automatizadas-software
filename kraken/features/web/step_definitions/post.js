@@ -2,7 +2,7 @@ const { Given, When, Then } = require('@cucumber/cucumber');
 const assert = require('assert');
 
 When('I click on create post', async function(){
-    let element = await this.driver.$('#ember27');
+    let element = await this.driver.$('a[href="#/editor/post/"]');
     return await element.click();
 });
 
@@ -83,4 +83,9 @@ Then('I click on custom-excerp', async function(){
 Then('I click on feature post', async function(){
     let element = await this.driver.$('label[for="featured"]');
     return element.click();
+});
+
+Then('I should see status published', async function(){
+    let element = await this.driver.$('span.fw4 > div:nth-child(1)').getText();
+    assert.equal(element, "Published");
 });
