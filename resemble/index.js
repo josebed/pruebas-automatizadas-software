@@ -8,31 +8,27 @@ async function executeTest(){
     
     let resultInfo = {}
     let datetime = new Date().toISOString().replace(/:/g,".");
-    krakenPath = '../kraken/artifacts/';
-    puppeteerPAth = '../puppeteer/artifacts';
+    let krakenPath = '../kraken/artifacts/';
+    let puppeteerPAth = '../puppeteer/artifacts';
+    let imagesInfo = [];
+
 
     
     let krakenFolders= ['scenario3', 'scenario4', 'scenario5', 'scenario15', 'scenario20'];
     let index = 0;
 
+
     for (let folder of krakenFolders){
-        console.log(krakenPath +'v1/'+ folder);  
-        fs.readdir(krakenPath +'v1/'+ folder, function (err, files) {
-            if (err) {
-                console.log("Error");
-                return;
-            }
-            console.log("files");   
-            return files;
-        });
+        
+        let filenames = fs.readdirSync(krakenPath+"/v1/"+folder);
 
-        for (let file of files){
+        for (let file of filenames){
             const data = await compareImages(
-                fs.readFileSync(krakenPath+'v1/'+folder+file),
-                fs.readFileSync(krakenPath+'v2/'+folder+file),
-                options
-            ); 
-
+                    fs.readFileSync(krakenPath+'v1/'+folder+'/'+file),
+                    fs.readFileSync(krakenPath+'v2/'+folder+'/'+file),
+                    options
+                ); 
+    
             resultInfo[index] = {
                 isSameDimensions: data.isSameDimensions,
                 dimensionDifference: data.dimensionDifference,
@@ -42,13 +38,22 @@ async function executeTest(){
                 analysisTime: data.analysisTime
             }
             fs.writeFileSync(`./comparacion/kraken/compare-v1v2-`+folder+file+`.png`, data.getBuffer());
+            
+            imagesInfo.push(
+                {
+                    imgRef: '../../'+krakenPath+'v1/'+folder+'/'+file,
+                    imgTest: '../../'+krakenPath+'v2/'+folder+'/'+file,
+                    imgCom: '../../'+`./comparacion/kraken/compare-v1v2-`+folder+file+`.png`,
+                    scenario: folder,
+                    step: file,
+                    resultInf: resultInfo[index]
+                });
             index++;
-
         }
 
     }        
         
-    fs.writeFileSync(`./comparacion/kraken/report.html`, createReport(datetime, resultInfo));
+    fs.writeFileSync(`./comparacion/kraken/report.html`, createReport(datetime, imagesInfo));
     fs.copyFileSync('./index.css', `./comparacion/kraken/index.css`);
 
     console.log('------------------------------------------------------------------------------------')
@@ -61,29 +66,29 @@ async function executeTest(){
 function browser(info){
     return `<div class=" browser" id="test0">
     <div class=" btitle">
-        <h2>Scenario 20</h2>
-        <p>Data: ${JSON.stringify(info)}</p>
+        <h2>${info.scenario} - ${info.step}</h2>
     </div>
     <div class="imgline">
       <div class="imgcontainer">
         <span class="imgname">Reference</span>
-        <img class="img2" src="../../../kraken/artifacts/v1/scenario20/login.png" id="refImage" label="Reference">
+        <img class="img2" src="${info.imgRef}" id="refImage" label="Reference">
       </div>
       <div class="imgcontainer">
         <span class="imgname">Test</span>
-        <img class="img2" src="../../../kraken/artifacts/v2/scenario20/login.png" id="testImage" label="Test">
+        <img class="img2" src="${info.imgTest}" id="testImage" label="Test">
       </div>
-    </div>
-    <div class="imgline">
+      <div class="imgline">
       <div class="imgcontainer">
         <span class="imgname">Diff</span>
-        <img class="imgfull" src="compare-v1v2-sc20.png" id="diffImage" label="Diff">
+        <img class="img2" src="${info.imgCom}" id="diffImage" label="Diff">
       </div>
     </div>
+    </div>
+    
   </div>`
 }
 
-function createReport(datetime, resInfo){
+function createReport(datetime, imagesInfo){
     return `
     <html>
         <head>
@@ -96,7 +101,7 @@ function createReport(datetime, resInfo){
             </h1>
             <p>Executed: ${datetime}</p>
             <div id="visualizer">
-                ${browser(resInfo)}
+                ${imagesInfo.map(b=>browser(b))}
             </div>
         </body>
     </html>`
