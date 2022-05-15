@@ -1,6 +1,4 @@
 {
-  "url":"https://monitor177.github.io/color-palette/",
-  "browsers":["chromium", "firefox"],
   "options":{
     "output": {
       "errorColor": {
