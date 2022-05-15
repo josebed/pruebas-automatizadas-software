@@ -45,3 +45,24 @@
 .imgfull{
     width:100%
 }
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  thead {
+    border: 1px solid #000;
+    background-color: #dddddd;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  hr{
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }

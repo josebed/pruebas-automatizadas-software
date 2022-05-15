@@ -15,6 +15,7 @@ async function executeTest(){
 
     
     let krakenFolders= ['scenario3', 'scenario4', 'scenario5', 'scenario15', 'scenario20'];
+    let puppeteerFolders= ["scenario1", "scenario3", "scenario4", "scenario7", "scenario13", "scenario20"]
     let index = 0;
 
 
@@ -84,6 +85,28 @@ function browser(info){
       </div>
     </div>
     </div>
+    <div>
+    <hr>
+    <table>
+      <thead>
+        <tr>
+        <th>isSameDimensions</th>
+        <th>dimensionDifference</th>
+        <th>rawMisMatchPercentage</th>
+        <th>misMatchPercentage</th>
+        <th>diffBounds</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>${info.resultInf.isSameDimensions}</td>
+          <td>${info.resultInf.dimensionDifference}</td>
+          <td>${info.resultInf.rawMisMatchPercentage}</td>
+          <td>${info.resultInf.misMatchPercentage}</td>
+          <td>${JSON.stringify(info.resultInf.diffBounds)}</td>
+      </tbody>
+    </table>
+    </div>
     
   </div>`
 }
@@ -96,8 +119,7 @@ function createReport(datetime, imagesInfo){
             <link href="index.css" type="text/css" rel="stylesheet">
         </head>
         <body>
-            <h1>Report for 
-                 <a href="${config.url}"> ${config.url}</a>
+            <h1>Report Ghost VTR V4.42 and V3.42
             </h1>
             <p>Executed: ${datetime}</p>
             <div id="visualizer">
