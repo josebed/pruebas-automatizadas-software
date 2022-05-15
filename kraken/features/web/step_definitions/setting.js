@@ -19,14 +19,3 @@ When('I click on staff', async function(){
 });
 
 
-When('I click on invite people', async function(){
-    let element = await this.driver.$('button.gh-btn.gh-btn-primary');
-    return await element.click();
-});
-
-
-When('I click on sent invitation', async function(){
-    let element = await this.driver.$('button.gh-btn.gh-btn-black.gh-btn-icon.ember-view > span.nth-child(1)');
-    return await element.click();
-});
-

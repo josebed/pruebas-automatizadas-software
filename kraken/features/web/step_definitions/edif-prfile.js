@@ -7,13 +7,14 @@
  });
 
  When('I click on your profile', async function(){
-     let element = await this.driver.$('a[href="#/settings/staff/polo/"]');
+     let element = await this.driver.$('/html/body/div[1]/div/ul/li[4]/a');
      return await element.click();
  });
 
  When('I click name', async function(){
      let element = await this.driver.$('#user-name');
-     return await element.click();
+     element.click();
+     return await element.clearValue();
  });
 
  Then('I should see name {kraken-string}', async function(pageTitle){
