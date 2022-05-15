@@ -41,7 +41,6 @@ const Scenario20 = require("./scenarios/Scenario20");
     await browser.close();
     console.log("Blog Creation Done!");
   }
-
   await scenario1();
   console.log("Scenario 1 Done!");
   await scenario2();
