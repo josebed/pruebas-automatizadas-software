@@ -98,6 +98,17 @@ Esto va a permitir crear el blog usando la información en el archivo properties
 
 Al terminar, podrá verse en la carpeta artifacts una carpeta con cada escenario retratando paso a paso una captura de pantalla del proceso que se llevó a cabo.
 
+#### Generacion imagenes para RTV 
+
+Ghost versión 3.42: ejecutar docker run -d -e url=http://localhost:2368 -p 2368:2368 --name ghost_3.42 ghost:3.42
+
+#### Correr las Pruebas Ghost 3.42
+
+Situarse en la carpeta puppeteer y ejecutar 
+```
+node indexv3_42.js
+```
+
 ## Kraken
 
 ### Software:
