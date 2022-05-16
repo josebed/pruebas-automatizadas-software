@@ -6,29 +6,59 @@ const { viewportHeight, viewportWidth, options } = config;
 
 async function executeTest(){
     
-    let resultInfo = {}
-    let datetime = new Date().toISOString().replace(/:/g,".");
     let krakenPath = '../kraken/artifacts/';
-    let puppeteerPAth = '../puppeteer/artifacts';
-    let imagesInfo = [];
-
-
+    let puppeteerPAth = '../puppeteer/artifacts/';
     
     let krakenFolders= ['scenario3', 'scenario4', 'scenario5', 'scenario15', 'scenario20'];
-    let puppeteerFolders= ["scenario1", "scenario3", "scenario4", "scenario7", "scenario13", "scenario20"]
+    let puppeteerFolders= ["scenario1", "scenario4", "scenario7", "scenario13", "scenario20"];
+    let krakenEvidences = ["v1/","v2/"];
+    let puppeteerEvidences = ["","RVT/"];
+    
+    compImages(krakenPath,krakenFolders,"kraken",krakenEvidences);
+    compImages(puppeteerPAth,puppeteerFolders,"puppeteer",puppeteerEvidences);
+
+}
+
+(async ()=>console.log(await executeTest()))();
+
+async function compImages(path, folders, tool, folderEvidences){
+
+    let resultInfo = {}
+    let datetime = new Date().toISOString().replace(/:/g,".");
+    let imagesInfo = [];
     let index = 0;
 
-
-    for (let folder of krakenFolders){
+    for (let folder of folders){
+        let filenames;
+        if(tool=="kraken"){
+            filenames = fs.readdirSync(path+folderEvidences[1]+folder);
+        }
+        else{
+            filenames = fs.readdirSync(path+folder+'/'+folderEvidences[1]);
+        }
         
-        let filenames = fs.readdirSync(krakenPath+"/v1/"+folder);
 
         for (let file of filenames){
-            const data = await compareImages(
-                    fs.readFileSync(krakenPath+'v1/'+folder+'/'+file),
-                    fs.readFileSync(krakenPath+'v2/'+folder+'/'+file),
+
+            let data;
+
+            if(tool=="kraken"){
+
+                data = await compareImages(
+                    fs.readFileSync(path+folderEvidences[0]+folder+'/'+file),
+                    fs.readFileSync(path+folderEvidences[1]+folder+'/'+file),
                     options
                 ); 
+            }else{
+               
+                data = await compareImages(
+                    fs.readFileSync(path+folder+'/'+folderEvidences[0]+file),
+                    fs.readFileSync(path+folder+'/'+folderEvidences[1]+file),
+                    options
+                ); 
+
+            }
+            
     
             resultInfo[index] = {
                 isSameDimensions: data.isSameDimensions,
@@ -38,30 +68,44 @@ async function executeTest(){
                 diffBounds: data.diffBounds,
                 analysisTime: data.analysisTime
             }
-            fs.writeFileSync(`./comparacion/kraken/compare-v1v2-`+folder+file+`.png`, data.getBuffer());
+            fs.writeFileSync("./comparacion/"+tool+"/compare-v1v2-"+folder+file+`.png`, data.getBuffer());
             
-            imagesInfo.push(
-                {
-                    imgRef: '../../'+krakenPath+'v1/'+folder+'/'+file,
-                    imgTest: '../../'+krakenPath+'v2/'+folder+'/'+file,
-                    imgCom: '../../'+`./comparacion/kraken/compare-v1v2-`+folder+file+`.png`,
-                    scenario: folder,
-                    step: file,
-                    resultInf: resultInfo[index]
-                });
+            if(tool=="kraken"){
+                imagesInfo.push(
+                    {
+                        imgRef: '../../'+path+folderEvidences[0]+folder+'/'+file,
+                        imgTest: '../../'+path+folderEvidences[1]+folder+'/'+file,
+                        imgCom: '../../'+"./comparacion/"+tool+"/compare-v1v2-"+folder+file+`.png`,
+                        scenario: folder,
+                        step: file,
+                        resultInf: resultInfo[index]
+                    });
+
+            }else{
+                imagesInfo.push(
+                    {
+                        imgRef: '../../'+path+folder+'/'+folderEvidences[0]+file,
+                        imgTest: '../../'+path+folder+'/'+folderEvidences[1]+file,
+                        imgCom: '../../'+"./comparacion/"+tool+"/compare-v1v2-"+folder+file+`.png`,
+                        scenario: folder,
+                        step: file,
+                        resultInf: resultInfo[index]
+                    });
+
+            }
+            
             index++;
         }
 
     }        
         
-    fs.writeFileSync(`./comparacion/kraken/report.html`, createReport(datetime, imagesInfo));
-    fs.copyFileSync('./index.css', `./comparacion/kraken/index.css`);
+    fs.writeFileSync(`./comparacion/${tool}/report.html`, createReport(datetime, imagesInfo));
+    fs.copyFileSync('./index.css', `./comparacion/${tool}/index.css`);
 
     console.log('------------------------------------------------------------------------------------')
     console.log("Execution finished. Check the report under the results folder")
-    return resultInfo;
+    //return resultInfo;
 }
-(async ()=>console.log(await executeTest()))();
 
 
 function browser(info){
