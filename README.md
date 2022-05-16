@@ -153,7 +153,7 @@ node indexv3_42.js
 
 ### Pre requisitos
 
-Ejecutar los pasos previos descritos previamente en este documento tanto para Puppeteer como Kraken.
+Ejecutar los pasos descritos previamente en el titulo "Proceso Para Ejecutar" tanto para Puppeteer como Kraken.
 
 ### Ejecucion RTV
 
@@ -163,11 +163,14 @@ Situarse en la carpeta resemble y estando ahí, ejecutar el siguiente comando:
 node index.js
 ```
 
+al finalizar la ejecución vera un mensaje en consola como el siguiente
+![imagen](https://user-images.githubusercontent.com/98704646/168517071-5e48fe02-8f35-4661-8330-800f557bcd8e.png)
+
 ### Ejecucion RTV
 
-Al finalizar el proceso ejecutado en el paso anterior, se generaran 2 reportes: 
- 1. En la carpeta resemble > comparacion > kraken abrir el archivo report.html, este contiene los resultado de las pruebas realizadas con la imagenes generadas con kraken.
- 2. En la carpeta resemble > comparacion > puppeteer abrir el archivo report.html, este contiene los resultado de las pruebas realizadas con la imagenes de los escenarios realizados en puppeteer.
+Una vez finalizado el paso anterior se generaran 2 reportes: 
+ 1. En la carpeta resemble > comparacion > kraken abrir el archivo report.html, este contiene los resultado de las pruebas realizadas con las imagenes generadas con kraken.
+ 2. En la carpeta resemble > comparacion > puppeteer abrir el archivo report.html, este contiene los resultado de las pruebas realizadas con las imagenes generadas con puppeteer para los diferentes escenarios.
 
 
 
