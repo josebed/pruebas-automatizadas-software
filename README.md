@@ -148,3 +148,29 @@ node indexv3_42.js
 | Es un excelente tipo de prueba caja negra       |  se acopla a los botones y no todas las veces se es presiso con el flujo de objetos HTML       | 
 | El lenguaje para escribir los pasos con ghiven-ghen-then es intuitivo | toma tiempo en escribir los escenarios  |
 | Toma capturas del flujo para hacer un debbug preciso  | toma tiempo en procesar pruebas largas  |
+
+## PRUEEBAS DE REGRESION VISUAL (RESEMBLE)
+
+### Pre requisitos
+
+Ejecutar los pasos previos descritos previamente en este documento tanto para Puppeteer como Kreken
+
+### Ejecucion RTV
+
+Situarse en la carpeta resemble y estando ahí, ejecutar el siguiente comando: 
+
+```
+node index.js
+```
+
+### Ejecucion RTV
+
+Al finalizar el proceso ejecutado en el paso anterior, se generaran 2 reportes: 
+ 1. En la carpeta resemble > comparacion > kraken abrir el archivo report.html, este contiene los resultado de las pruebas realizadas con la imagenes generadas con kraken.
+ 2. En la carpeta resemble > comparacion > puppeteer abrir el archivo report.html, este contiene los resultado de las pruebas realizadas con la imagenes de los escenarios realizados en puppeteer.
+
+
+
+
+
+
