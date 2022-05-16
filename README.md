@@ -149,11 +149,11 @@ node indexv3_42.js
 | El lenguaje para escribir los pasos con ghiven-ghen-then es intuitivo | toma tiempo en escribir los escenarios  |
 | Toma capturas del flujo para hacer un debbug preciso  | toma tiempo en procesar pruebas largas  |
 
-## PRUEEBAS DE REGRESION VISUAL (RESEMBLE)
+## PRUEBAS DE REGRESION VISUAL (RESEMBLE)
 
 ### Pre requisitos
 
-Ejecutar los pasos previos descritos previamente en este documento tanto para Puppeteer como Kreken
+Ejecutar los pasos previos descritos previamente en este documento tanto para Puppeteer como Kraken.
 
 ### Ejecucion RTV
 
