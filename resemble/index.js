@@ -68,14 +68,14 @@ async function compImages(path, folders, tool, folderEvidences){
                 diffBounds: data.diffBounds,
                 analysisTime: data.analysisTime
             }
-            fs.writeFileSync("./comparacion/"+tool+"/compare-v1v2-"+folder+file+`.png`, data.getBuffer());
+            fs.writeFileSync("./comparacion/"+tool+"/compare-v1v2-"+folder+file, data.getBuffer());
             
             if(tool=="kraken"){
                 imagesInfo.push(
                     {
                         imgRef: '../../'+path+folderEvidences[0]+folder+'/'+file,
                         imgTest: '../../'+path+folderEvidences[1]+folder+'/'+file,
-                        imgCom: '../../'+"./comparacion/"+tool+"/compare-v1v2-"+folder+file+`.png`,
+                        imgCom: '../../'+"./comparacion/"+tool+"/compare-v1v2-"+folder+file,
                         scenario: folder,
                         step: file,
                         resultInf: resultInfo[index]
@@ -86,7 +86,7 @@ async function compImages(path, folders, tool, folderEvidences){
                     {
                         imgRef: '../../'+path+folder+'/'+folderEvidences[0]+file,
                         imgTest: '../../'+path+folder+'/'+folderEvidences[1]+file,
-                        imgCom: '../../'+"./comparacion/"+tool+"/compare-v1v2-"+folder+file+`.png`,
+                        imgCom: '../../'+"./comparacion/"+tool+"/compare-v1v2-"+folder+file,
                         scenario: folder,
                         step: file,
                         resultInf: resultInfo[index]
