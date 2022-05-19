@@ -180,7 +180,7 @@ Una vez finalizado el paso anterior se generaran 2 reportes:
 | ------ | ----- |
 | Facil configuración, e intregración con otras herramientas | No genera reportes automáticamente |
 | Permite hacer análisis considerando o sin considerar los colores. | Si la información es dinámica, puede generar diferencias aunque el html sea el mismo, dado que solo se basa en imágenes |
-| Permite personailzar el estilo deseado para la salida |  |
+| Permite personailzar el estilo deseado para la salida | las estadisticas que genera, no siempres son confiables |
 | Permite realizar las comparaciones solo en un área de la imagen |  |
 
 ### BackstopJS
