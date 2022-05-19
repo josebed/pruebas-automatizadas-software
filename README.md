@@ -172,6 +172,27 @@ Una vez finalizado el paso anterior se generaran 2 reportes:
  1. En la carpeta resemble > comparacion > kraken abrir el archivo report.html, este contiene los resultado de las pruebas realizadas con las imagenes generadas con kraken.
  2. En la carpeta resemble > comparacion > puppeteer abrir el archivo report.html, este contiene los resultado de las pruebas realizadas con las imagenes generadas con puppeteer para los diferentes escenarios.
 
+## Pros y Contra de las herramientas
+
+### ResembleJS
+
+| Pros | Contras | 
+| ------ | ----- |
+| Permite redefinir el tamaño de las imágenes para la comparación, garantizando que sean de las mismas dimensiones | No genera reportes automáticamente |
+| Permite hacer análisis considerando o sin considerar los colores. | Si la información es dinámica, puede generar diferencias aunque el html sea el mismo, dado que solo se basa en imágenes |
+| Permite configurar el estilo deseado para la salida |  |
+| Permite realizar las comparaciones solo en un área de la imagen |  |
+
+### BackstopJS
+
+| Pros | Contras | 
+| ------ | ----- |
+| Analiza el DOM html, garantizando que las comparaciones se hacen sobre la estrucutra de la UI | Sensible a contenido dinámico |
+| Permite la integración con Playwright y Puppeteer | Requiere se indique el elemento de referencia |
+| Generar reporte automatico  | Se debe aprobar los escenarios válidos |
+
+
+
 
 
 
