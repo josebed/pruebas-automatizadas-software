@@ -1,6 +1,7 @@
 const puppeteer = require("puppeteer");
 const Scenario31 = require("./scenarios/Scenario31");
 const Scenario32 = require("./scenarios/Scenario32");
+const Scenario101 = require("./scenarios/Scenario101");
 const PageObjects = require("../puppeteer/page_objects/PageObjects");
 const ScenarioMapper = require("./scenarios/ScenarioMapper");
 
@@ -9,7 +10,8 @@ const ScenarioMapper = require("./scenarios/ScenarioMapper");
   const flag = process.argv.slice(2);
   if (Object.keys(ScenarioMapper).includes(flag[0])) {
     console.log("Flag for individual scenario found", flag[0]);
-    await ScenarioMapper[flag[0]]();
+    const response = await ScenarioMapper[flag[0]]();
+    console.log(`Scenario${flag[0]} result: ${response}`);
     return
   }
   if (flag == "--clean") {
@@ -35,5 +37,8 @@ const ScenarioMapper = require("./scenarios/ScenarioMapper");
   });
   await Scenario32().then(r => {
     console.log("Scenario32 (Negativo): Login + addNavigation(Label vacio) reuslt: " + r);
+  });
+  await Scenario101().then(r => {
+    console.log("Scenario101 (Positivo): Login + Settings + Nuevo título(Datos aleatorios) reuslt: " + r);
   });
 })();
