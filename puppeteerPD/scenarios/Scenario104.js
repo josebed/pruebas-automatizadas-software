@@ -1,7 +1,8 @@
 const puppeteer = require("puppeteer");
 const PageObjects = require("../page_objects/PageObjects");
+const { faker } = require("@faker-js/faker");
 
-const SCENARIO = "./artifacts/scenario102";
+const SCENARIO = "./artifacts/scenario104";
 
 module.exports = async () => {
   // Given a Browser with an account created
@@ -26,7 +27,7 @@ module.exports = async () => {
     return document.querySelectorAll(".gh-btn")[1].click()
   });
   await new Promise((r) => setTimeout(r, 200));
-  const fieldID = await PageObjects.GetSiblingInputByP(page, "The name of your site");
+  const fieldID = await PageObjects.GetSiblingInputByP(page, "Used in your theme, meta data and search results");
   await PageObjects.ClearInputByID(page, fieldID);
 
   //...to something empty...
@@ -42,12 +43,10 @@ module.exports = async () => {
   await new Promise((r) => setTimeout(r, 200));
 
   // I should get the new title
+  await page.screenshot({ path: `${SCENARIO}/SettingsPage.jpg` });
   const isSaved = await page.evaluate(() => {
     return document.querySelectorAll(".gh-btn")[0].classList.contains('gh-btn-green');
   });
-  await page.goto("http://localhost:2368/ghost/#/settings/general");
-  await new Promise((r) => setTimeout(r, 200));
-  await page.screenshot({ path: `${SCENARIO}/SettingsPage.jpg` });
   await browser.close();
 
   return isSaved ? "Success" : "Failed" ;
