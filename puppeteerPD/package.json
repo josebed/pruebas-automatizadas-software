@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@faker-js/faker": "^6.3.1",
+    "puppeteer": "^14.1.1"
+  }
+}
+
