@@ -30,9 +30,9 @@ module.exports = async () => {
   const fieldID = await PageObjects.GetSiblingInputByP(page, "The name of your site");
   await PageObjects.ClearInputByID(page, fieldID);
 
-  //...to something random...
+  //...to something empty...
   const fields = {
-    [`#${fieldID}`]: faker.lorem.words(),
+    [`#${fieldID}`]: '',
   };
   await PageObjects.TypeFormFields(page, fields, SCENARIO);
 
@@ -44,10 +44,5 @@ module.exports = async () => {
 
   // I should get the new title
   await page.screenshot({ path: `${SCENARIO}/SettingsPage.jpg` });
-  const isSaved = await page.evaluate(() => {
-    return document.querySelectorAll(".gh-btn")[0].classList.contains('gh-btn-green');
-  });
   await browser.close();
-
-  return isSaved ? "Success" : "Failed" ;
 };
