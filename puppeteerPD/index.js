@@ -1,15 +1,24 @@
 const puppeteer = require("puppeteer");
-const PageObjects = require("./page_objects/PageObjects");
 const Scenario31 = require("./scenarios/Scenario31");
 const Scenario32 = require("./scenarios/Scenario32");
+<<<<<<< HEAD
 const Scenario33 = require("./scenarios/Scenario33");
+=======
+const PageObjects = require("../puppeteer/page_objects/PageObjects");
+const ScenarioMapper = require("./scenarios/ScenarioMapper");
+>>>>>>> e1299c09f20020a36363c7442defcb4f82f683de
 
 
 (async () => {
-  const isClean = process.argv.slice(2);
-  if (isClean == "--clean") {
+  const flag = process.argv.slice(2);
+  if (Object.keys(ScenarioMapper).includes(flag[0])) {
+    console.log("Flag for individual scenario found", flag[0]);
+    await ScenarioMapper[flag[0]]();
+    return
+  }
+  if (flag == "--clean") {
     const browser = await puppeteer.launch({
-      headless: false,
+      headless: true,
       ignoreHTTPSErrors: true,
       args: [`--window-size=1920,1080`],
       defaultViewport: {
