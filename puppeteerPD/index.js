@@ -2,6 +2,7 @@ const puppeteer = require("puppeteer");
 const PageObjects = require("./page_objects/PageObjects");
 const Scenario31 = require("./scenarios/Scenario31");
 const Scenario32 = require("./scenarios/Scenario32");
+const Scenario33 = require("./scenarios/Scenario33");
 
 
 (async () => {
@@ -28,6 +29,9 @@ const Scenario32 = require("./scenarios/Scenario32");
     console.log("Scenario31 (Positivo): Login + addNavigation(Datos validos) result: " + r);
   });
   await Scenario32().then(r => {
-    console.log("Scenario32 (Negativo): Login + addNavigation(Label vacio) reuslt: " + r);
+    console.log("Scenario32 (Negativo): Login + addNavigation(Label vacio) result: " + r);
+  });
+  await Scenario33().then(r => {
+    console.log("Scenario32 (Negativo): Login + addNavigation(url sin protocolo) result: " + r);
   });
 })();
