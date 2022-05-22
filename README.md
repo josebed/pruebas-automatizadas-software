@@ -199,13 +199,16 @@ Una vez finalizado el paso anterior se generaran 2 reportes:
 | Add navegacion | Negativo - url invalido | Se realiza login, y no se adiciona un menu de navegacion |
 | Add miembro | Positivo | Se realiza login, y se adiciona un miembro |
 | Add miembro | Positivo - Solo con correo | Se realiza login, y se adiciona un menu de navegacion  |
-| Add miembro | Negativo - nombre invalido longitud igual a 190 | Se realiza login, y no se adiciona miembro |
-| Add miembro | Negativo - nombre invalido longitud igual a 191 | Se realiza login, y no se adiciona miembro |
-| Add miembro | Negativo - nombre invalido longitud igual a 192 | Se realiza login, y no se adiciona miembro |
-| Add miembro | Negativo - correo invalido longitud igual a 190 | Se realiza login, y no se adiciona miembro |
-| Add miembro | Negativo - correo invalido longitud igual a 191 | Se realiza login, y no se adiciona miembro |
+| Add miembro | Positivo - nombre longitud igual a 190 | Se realiza login, y se adiciona miembro |
+| Add miembro | Positivo - nombre longitud igual a 191 | Se realiza login, y se adiciona miembro |
+| Add miembro | Negativo - nombre longitud igual a 192 | Se realiza login, y no se adiciona miembro |
+| Add miembro | Positivo - correo longitud igual a 190 | Se realiza login, y se adiciona miembro |
+| Add miembro | Positivo - correo longitud igual a 191 | Se realiza login, y se adiciona miembro |
 | Add miembro | Negativo - correo invalido longitud igual a 192 | Se realiza login, y no se adiciona miembro |
 | Add miembro | Negativo - correo dominio invalido | Se realiza login, y no se adiciona miembro |
+| Add miembro | Positivo - notas longitud 499 | Se realiza login, y se adiciona miembro |
+| Add miembro | Positivo - notas longitud 500 | Se realiza login, y se adiciona miembro |
+| Add miembro | Negativo - notas longitud 501 | Se realiza login, y no se adiciona miembro |
 
 
 
