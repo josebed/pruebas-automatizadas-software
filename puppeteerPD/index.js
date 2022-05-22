@@ -1,8 +1,13 @@
 const puppeteer = require("puppeteer");
 const Scenario31 = require("./scenarios/Scenario31");
 const Scenario32 = require("./scenarios/Scenario32");
-const Scenario101 = require("./scenarios/Scenario101");
 const Scenario33 = require("./scenarios/Scenario33");
+const Scenario101 = require("./scenarios/Scenario101");
+const Scenario102 = require("./scenarios/Scenario102");
+const Scenario103 = require("./scenarios/Scenario103");
+const Scenario104 = require("./scenarios/Scenario104");
+const Scenario105 = require("./scenarios/Scenario105");
+const Scenario106 = require("./scenarios/Scenario106");
 const PageObjects = require("../puppeteer/page_objects/PageObjects");
 const ScenarioMapper = require("./scenarios/ScenarioMapper");
 
@@ -44,5 +49,20 @@ const ScenarioMapper = require("./scenarios/ScenarioMapper");
   });
   await Scenario101().then(r => {
     console.log("Scenario101 (Positivo): Login + Settings + Nuevo título(Datos aleatorios) reuslt: " + r);
+  });
+  await Scenario102().then(r => {
+    console.log("Scenario102 (Positivo): Login + Settings + Nuevo título(Datos vacíos) reuslt: " + r);
+  });
+  await Scenario103().then(r => {
+    console.log("Scenario103 (Positivo): Login + Settings + Nueva Descripción(Datos aleatorios) reuslt: " + r);
+  });
+  await Scenario104().then(r => {
+    console.log("Scenario104 (Positivo): Login + Settings + Nueva Descripción(Datos vacíos) reuslt: " + r);
+  });
+  await Scenario105().then(r => {
+    console.log("Scenario105 (Positivo): Login + Settings + Nuevo Idioma(Datos aleatorios) reuslt: " + r);
+  });
+  await Scenario106().then(r => {
+    console.log("Scenario106 (Negativo): Login + Settings + Nuevo Idioma(Datos vacíos) reuslt: " + r);
   });
 })();

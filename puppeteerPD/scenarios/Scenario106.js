@@ -1,8 +1,7 @@
 const puppeteer = require("puppeteer");
 const PageObjects = require("../page_objects/PageObjects");
-const { faker } = require("@faker-js/faker");
 
-const SCENARIO = "./artifacts/scenario104";
+const SCENARIO = "./artifacts/scenario106";
 
 module.exports = async () => {
   // Given a Browser with an account created
@@ -19,20 +18,20 @@ module.exports = async () => {
   await page.goto("http://localhost:2368/ghost");
   await new Promise((r) => setTimeout(r, 500));
 
-  // When I Log In and change the description...
+  // When I Log In and change the language...
   await PageObjects.LogIn(page, SCENARIO);
   await page.goto("http://localhost:2368/ghost/#/settings/general");
-  await new Promise((r) => setTimeout(r, 100));
+  await new Promise((r) => setTimeout(r, 200));
   await page.evaluate(() => {
-    return document.querySelectorAll(".gh-btn")[1].click()
+    return document.querySelectorAll(".gh-btn")[3].click()
   });
   await new Promise((r) => setTimeout(r, 200));
-  const fieldID = await PageObjects.GetSiblingInputByP(page, "Used in your theme, meta data and search results");
+  const fieldID = await PageObjects.GetSiblingInputByP(page, "Default: English (en");
   await PageObjects.ClearInputByID(page, fieldID);
 
   //...to something empty...
   const fields = {
-    [`#${fieldID}`]: '',
+    [`#${fieldID}`]: "",
   };
   await PageObjects.TypeFormFields(page, fields, SCENARIO);
 
@@ -41,11 +40,12 @@ module.exports = async () => {
     return document.querySelectorAll(".gh-btn")[0].click()
   });
   await new Promise((r) => setTimeout(r, 200));
+  await page.click(`#${fieldID}`);
 
-  // I should get the new description
+  // I should get a warning for a required field
   await page.screenshot({ path: `${SCENARIO}/SettingsPage.jpg` });
   const isSaved = await page.evaluate(() => {
-    return document.querySelectorAll(".gh-btn")[0].classList.contains('gh-btn-green');
+    return document.querySelectorAll(".gh-btn")[0].classList.contains('gh-btn-red');
   });
   await browser.close();
 

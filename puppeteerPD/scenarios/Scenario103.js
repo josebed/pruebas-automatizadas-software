@@ -19,7 +19,7 @@ module.exports = async () => {
   await page.goto("http://localhost:2368/ghost");
   await new Promise((r) => setTimeout(r, 500));
 
-  // When I Log In and change the title...
+  // When I Log In and change the description...
   await PageObjects.LogIn(page, SCENARIO);
   await page.goto("http://localhost:2368/ghost/#/settings/general");
   await new Promise((r) => setTimeout(r, 100));
@@ -42,7 +42,7 @@ module.exports = async () => {
   });
   await new Promise((r) => setTimeout(r, 200));
 
-  // I should get the new title
+  // I should get the new description
   await page.screenshot({ path: `${SCENARIO}/SettingsPage.jpg` });
   const isSaved = await page.evaluate(() => {
     return document.querySelectorAll(".gh-btn")[0].classList.contains('gh-btn-green');

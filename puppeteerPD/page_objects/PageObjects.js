@@ -236,7 +236,7 @@ module.exports = {
     const ID = await page.evaluate((value) => {
       const allP = Array.from(document.querySelectorAll("p"));
       const currentP = allP.find(
-        (element) => element.textContent === value
+        (element) => element.textContent.includes(value)
       );
       const parentNode = currentP.parentNode;
       const siblings = Array.from(parentNode.childNodes);
