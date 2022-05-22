@@ -223,5 +223,29 @@ module.exports = {
     await page.click(".view-actions > button");
     await new Promise((r) => setTimeout(r, 500));
     await page.screenshot({ path: `${basePath}/4-ProfileSave.jpg` });
+  },
+  TypeFormFields: async(page, fields, basePath) => {
+    await page.screenshot({ path: `${basePath}/formPre.jpg` });
+    for (const fieldName in fields) {
+      const fieldValue = fields[fieldName];
+      await page.type(fieldName, fieldValue);
+    }
+    await page.screenshot({ path: `${basePath}/formPost.jpg` });
+  },
+  GetSiblingInputByP: async(page, value) => {
+    const ID = await page.evaluate((value) => {
+      return Array.from(Array.from(document.querySelectorAll("p")).find(
+        (element) => element.innerHTML === value
+      ).parentNode.childNodes).find(
+        (element) => element.tagName === "INPUT"
+      ).id;
+    }, value);
+
+    return ID;
+  },
+  ClearInputByID: async(page, ID) => {
+    await page.evaluate((ID) => {
+      document.getElementById(ID).value = "";
+    }, ID);
   }
 };
