@@ -8,6 +8,8 @@ const Scenario103 = require("./scenarios/Scenario103");
 const Scenario104 = require("./scenarios/Scenario104");
 const Scenario105 = require("./scenarios/Scenario105");
 const Scenario106 = require("./scenarios/Scenario106");
+const Scenario107 = require("./scenarios/Scenario107");
+const Scenario108 = require("./scenarios/Scenario108");
 const PageObjects = require("../puppeteer/page_objects/PageObjects");
 const ScenarioMapper = require("./scenarios/ScenarioMapper");
 
@@ -64,5 +66,11 @@ const ScenarioMapper = require("./scenarios/ScenarioMapper");
   });
   await Scenario106().then(r => {
     console.log("Scenario106 (Negativo): Login + Settings + Nuevo Idioma(Datos vacíos) reuslt: " + r);
+  });
+  await Scenario107().then(r => {
+    console.log("Scenario107 (Positivo): Login + Settings + Nuevo Meta Title(Datos aleatorios) reuslt: " + r);
+  });
+  await Scenario108().then(r => {
+    console.log("Scenario108 (Negativo): Login + Settings + Nuevo Meta Title(Datos vacíos) reuslt: " + r);
   });
 })();
