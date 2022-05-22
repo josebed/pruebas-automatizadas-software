@@ -191,6 +191,21 @@ Una vez finalizado el paso anterior se generaran 2 reportes:
 | Permite la integración con Playwright y Puppeteer | Requiere se indique el elemento de referencia |
 | Generar reporte automatico  | Se debe aprobar los escenarios válidos |
 
+### Pruebas con Puppeteer usando DataPool
+| Escenario| tipo | Acciones | 
+|---|---|---|
+| Add navegacion | Positivo | Se realiza login, y se adiciona un menu de navegacion |
+| Add navegacion | Negativo - label invalido | Se realiza login, y no se adiciona un menu de navegacion  |
+| Add navegacion | Negativo - url invalido | Se realiza login, y no se adiciona un menu de navegacion |
+| Add miembro | Positivo | Se realiza login, y se adiciona un miembro |
+| Add miembro | Positivo - Solo con correo | Se realiza login, y se adiciona un menu de navegacion  |
+| Add miembro | Negativo - nombre invalido longitud igual a 190 | Se realiza login, y no se adiciona miembro |
+| Add miembro | Negativo - nombre invalido longitud igual a 191 | Se realiza login, y no se adiciona miembro |
+| Add miembro | Negativo - nombre invalido longitud igual a 192 | Se realiza login, y no se adiciona miembro |
+| Add miembro | Negativo - correo invalido longitud igual a 190 | Se realiza login, y no se adiciona miembro |
+| Add miembro | Negativo - correo invalido longitud igual a 191 | Se realiza login, y no se adiciona miembro |
+| Add miembro | Negativo - correo invalido longitud igual a 192 | Se realiza login, y no se adiciona miembro |
+| Add miembro | Negativo - correo dominio invalido | Se realiza login, y no se adiciona miembro |
 
 
 
