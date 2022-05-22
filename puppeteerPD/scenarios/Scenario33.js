@@ -1,6 +1,7 @@
+const { faker } = require('@faker-js/faker');
 const puppeteer = require("puppeteer");
 const PageObjects = require("../page_objects/PageObjects");
-const dataPoolApriori = require("./../dataPool.json");
+const dataPool = require("./../dataPool");
 
 const SCENARIO = "./artifacts/scenario33";
 
@@ -21,7 +22,7 @@ module.exports = async () => {
 
   // When I Log In and create a new link navigation
   await PageObjects.LogIn(page, SCENARIO);
-  await PageObjects.AddPrimaryNavigation(page, SCENARIO);
+  const result = await PageObjects.AddPrimaryNavigation(page, SCENARIO, dataPool.primaryNavigation.label, faker.internet.domainName());
   
   // Then, I should see the tag listed
   await page.goto("http://localhost:2368/ghost/#/settings/navigation");
@@ -29,4 +30,5 @@ module.exports = async () => {
   await page.screenshot({ path: `${SCENARIO}/NavigationList.jpg` });
 
   await browser.close();
+  return result;
 };

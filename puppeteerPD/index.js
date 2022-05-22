@@ -2,6 +2,7 @@ const puppeteer = require("puppeteer");
 const Scenario31 = require("./scenarios/Scenario31");
 const Scenario32 = require("./scenarios/Scenario32");
 const Scenario101 = require("./scenarios/Scenario101");
+const Scenario33 = require("./scenarios/Scenario33");
 const PageObjects = require("../puppeteer/page_objects/PageObjects");
 const ScenarioMapper = require("./scenarios/ScenarioMapper");
 
@@ -36,7 +37,10 @@ const ScenarioMapper = require("./scenarios/ScenarioMapper");
     console.log("Scenario31 (Positivo): Login + addNavigation(Datos validos) result: " + r);
   });
   await Scenario32().then(r => {
-    console.log("Scenario32 (Negativo): Login + addNavigation(Label vacio) reuslt: " + r);
+    console.log("Scenario32 (Negativo): Login + addNavigation(Label vacio) result: " + r);
+  });
+  await Scenario33().then(r => {
+    console.log("Scenario32 (Negativo): Login + addNavigation(url sin protocolo) result: " + r);
   });
   await Scenario101().then(r => {
     console.log("Scenario101 (Positivo): Login + Settings + Nuevo título(Datos aleatorios) reuslt: " + r);

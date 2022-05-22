@@ -22,7 +22,7 @@ module.exports = async () => {
 
   // When I Log In and create a new link navigation
   await PageObjects.LogIn(page, SCENARIO);
-  const result = await PageObjects.AddPrimaryNavigation(page, SCENARIO, dataPool.primaryNavigation.label, dataPool.primaryNavigation.URL, "positive");
+  const result = await PageObjects.AddPrimaryNavigation(page, SCENARIO, dataPool.primaryNavigation.label, dataPool.primaryNavigation.URL);
   
   // Then, I should see the tag listed
   await page.goto("http://localhost:2368/ghost/#/settings/navigation");
