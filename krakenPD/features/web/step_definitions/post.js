@@ -89,3 +89,19 @@ Then('I should see status published', async function(){
     let element = await this.driver.$('span.fw4 > div:nth-child(1)').getText();
     assert.equal(element, "Published");
 });
+
+Then('I validate post title error', async function(){
+   let element = await this.driver.$('.gh-alert-content').getText();
+   assert.match(element, /Saving failed: Title cannot be longer than 255 characters./);
+});
+
+
+Then('I validate excerpt error message', async function(){
+    let element= await this.driver.$('p.response').getText();
+    assert.match(element, /Excerpt cannot be longer than 300 characters./);
+});
+
+Then('I click on label custom-excerpt', async function(){
+    let element = await this.driver.$('label[for="custom-excerpt"]');
+    return element.click();
+})
