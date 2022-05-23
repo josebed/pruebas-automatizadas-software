@@ -205,7 +205,7 @@ Una vez finalizado el paso anterior se generaran 2 reportes:
 | Add miembro | Positivo - correo longitud igual a 190 | Se realiza login, y se adiciona miembro |
 | Add miembro | Positivo - correo longitud igual a 191 | Se realiza login, y se adiciona miembro |
 | Add miembro | Negativo - correo invalido longitud igual a 192 | Se realiza login, y no se adiciona miembro |
-| Add miembro | Negativo - correo dominio invalido | Se realiza login, y no se adiciona miembro |
+| Add miembro | Negativo - correo caracteres especiales| Se realiza login, y no se adiciona miembro |
 | Add miembro | Positivo - notas longitud 499 | Se realiza login, y se adiciona miembro |
 | Add miembro | Positivo - notas longitud 500 | Se realiza login, y se adiciona miembro |
 | Add miembro | Negativo - notas longitud 501 | Se realiza login, y no se adiciona miembro |
@@ -216,12 +216,4 @@ Una vez finalizado el paso anterior se generaran 2 reportes:
 | Invite Staff | Positivo - correo longitud igual a 190 | Se realiza login, y se envia invitacion |
 | Invite Staff | Positivo - correo longitud igual a 191 | Se realiza login, y se envia invitacion |
 | Invite Staff | Negativo - correo longitud igual a 192 | Se realiza login, y no se envia invitacion |
-| Invite Staff | Negativo - dominio invalido | Se realiza login, y no se envia invitacion |
 | Invite Staff | Negativo - caracteres especiales | Se realiza login, y no se envia invitacion |
-
-
-
-
-
-
-
