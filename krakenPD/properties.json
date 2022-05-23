@@ -21,5 +21,29 @@
     "postTitle254": "Post titleeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
     "excerpt300":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet ante semper, sodales quam sed, lobortis nulla. Cras porta neque vitae tellus euismod, id semper nunc tempor. Sed dictum quis purus a tincidunt. Aliquam erat volutpat. Ut vel tincidunt magna, euismod dignissim risus. Donec nec u",
     "excerpt301": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet ante semper, sodales quam sed, lobortis nulla. Cras porta neque vitae tellus euismod, id semper nunc tempor. Sed dictum quis purus a tincidunt. Aliquam erat volutpat. Ut vel tincidunt magna, euismod dignissim risus. Donec nec un",
-    "excerpt299": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet ante semper, sodales quam sed, lobortis nulla. Cras porta neque vitae tellus euismod, id semper nunc tempor. Sed dictum quis purus a tincidunt. Aliquam erat volutpat. Ut vel tincidunt magna, euismod dignissim risus. Donec nec "
+    "excerpt299": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet ante semper, sodales quam sed, lobortis nulla. Cras porta neque vitae tellus euismod, id semper nunc tempor. Sed dictum quis purus a tincidunt. Aliquam erat volutpat. Ut vel tincidunt magna, euismod dignissim risus. Donec nec ",
+
+    "title_page_254": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse porttitor pellentesque risus sed volutpat. Suspendisse porttitor sem sed ex iaculis auctor. Aenean a feugiat felis. Proin dapibus lacus tortor, a scelerisque lacus tempus quis pharetra.",
+    "title_page_255": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas elementum, felis id interdum convallis, est quam tristique dolor, et fringilla ipsum augue et nisi. Sed sed massa scelerisque, mollis ante id, lobortis elit. Vestibulum ante ipsum placerat.",
+    "title_page_256": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi arcu nibh, suscipit id eros vel, pharetra bibendum mauris. Vestibulum ex felis, fringilla in cursus vitae, porttitor vitae velit. Etiam tellus libero, consectetur vel dui eget, facilisis dolor.",
+
+    "name_mienbro_190": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu rhoncus eros. Nunc quis lorem iaculis, sodales libero eu, aliquet sapien. Integer eget dolor felis. Aliquam erat volutpat sit.",
+    "name_mienbro_191": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit, metus ac efficitur interdum, sem ante elementum leo, in mattis ipsum enim sit amet risus. Nam et urna diam non.",
+    "name_mienbro_192": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sed maximus ipsum. Donec quis est sed lacus tincidunt tincidunt at non magna. Nunc dictum urna at augue dictum rhoncus aliquam.",
+    "name_mienbro1": "goma",
+    "name_mienbro2": "luna",
+    "name_mienbro3": "sol",
+    "name_mienbro4": "marte",
+    "name_mienbro5": "pan",
+    "name_mienbro6": "dia",
+
+    "correo_mienbro_forma_bien": "algo@algo.com",
+    "correo_mienbro_longitud_large": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultricies consectetur ipsum. Sed porttitor interdum dolor interdum fringilla. Aenean a urna lobortis, maximus libero ac, volutpat massa. Integer cursus, felis in consectetur consequat aliquam",
+    "correo_mienbro_forma_mal": "algo&algo,com@",
+
+
+    "note_mienbro_501": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur sem non mi pharetra, id lacinia erat eleifend. Nulla ut purus sed elit aliquam viverra. Proin eget tortor mattis neque luctus lobortis. Pellentesque lobortis aliquam porta. In nec lacinia magna, at porttitor purus. Cras tincidunt pulvinar varius. Suspendisse non nunc vel tortor ornare lobortis pellentesque sed nunc.\n\nDonec pharetra enim nibh, non ultricies mauris malesuada nec. Aliquam fringilla venenatis convallis porta ante.",
+    "note_mienbro_500": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dignissim vestibulum sapien vitae dictum. Ut ac erat vulputate, hendrerit justo id, gravida tortor. Mauris tempus dignissim ullamcorper. Maecenas lorem ipsum, placerat nec tortor in, luctus molestie justo. Morbi est turpis, sagittis id efficitur vel, tincidunt a lectus. Cras ac commodo diam, lobortis tempus dui. Sed et facilisis nisl, sed consequat enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam non nibh vivamus."
+
+
 }
