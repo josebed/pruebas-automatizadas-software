@@ -232,14 +232,19 @@ module.exports = {
     }
     await page.screenshot({ path: `${basePath}/formPost.jpg` });
   },
-  GetSiblingInputByP: async(page, value) => {
-    const ID = await page.evaluate((value) => {
-      return Array.from(Array.from(document.querySelectorAll("p")).find(
-        (element) => element.innerHTML === value
-      ).parentNode.childNodes).find(
-        (element) => element.tagName === "INPUT"
+  GetSiblingInputByP: async(page, value, fieldType="INPUT") => {
+    const ID = await page.evaluate((value, fieldType) => {
+      const allP = Array.from(document.querySelectorAll("p"));
+      const currentP = allP.find(
+        (element) => element.textContent.includes(value)
+      );
+      const parentNode = currentP.parentNode;
+      const siblings = Array.from(parentNode.childNodes);
+
+      return siblings.find(
+        (element) => element.tagName === fieldType
       ).id;
-    }, value);
+    }, value, fieldType);
 
     return ID;
   },
