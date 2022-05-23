@@ -21,6 +21,9 @@ const Scenario116 = require("./scenarios/Scenario116");
 const Scenario117 = require("./scenarios/Scenario117");
 const Scenario118 = require("./scenarios/Scenario118");
 const Scenario119 = require("./scenarios/Scenario119");
+const Scenario120 = require("./scenarios/Scenario120");
+const Scenario121 = require("./scenarios/Scenario121");
+const Scenario122 = require("./scenarios/Scenario122");
 const PageObjects = require("../puppeteer/page_objects/PageObjects");
 const ScenarioMapper = require("./scenarios/ScenarioMapper");
 
@@ -116,5 +119,14 @@ const ScenarioMapper = require("./scenarios/ScenarioMapper");
   });
   await Scenario119().then(r => {
     console.log("Scenario119 (Negativo): Login + Settings + Nuevo Facebook Title(Datos demasiado largos) result: " + r);
+  });
+  await Scenario120().then(r => {
+    console.log("Scenario120 (Positivo): Login + Settings + Nuevo Facebook Description(Datos aleatorios) result: " + r);
+  });
+  await Scenario121().then(r => {
+    console.log("Scenario121 (Negativo): Login + Settings + Nuevo Facebook Description(Datos vacíos) result: " + r);
+  });
+  await Scenario122().then(r => {
+    console.log("Scenario122 (Negativo): Login + Settings + Nuevo Facebook Description(Datos demasiado largos) result: " + r);
   });
 })();

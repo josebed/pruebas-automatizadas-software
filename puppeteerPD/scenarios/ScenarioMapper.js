@@ -19,6 +19,9 @@ const Scenario116 = require("./Scenario116");
 const Scenario117 = require("./Scenario117");
 const Scenario118 = require("./Scenario118");
 const Scenario119 = require("./Scenario119");
+const Scenario120 = require("./Scenario120");
+const Scenario121 = require("./Scenario121");
+const Scenario122 = require("./Scenario122");
 
 module.exports = {
     [31]: Scenario31,
@@ -42,4 +45,7 @@ module.exports = {
     [117]: Scenario117,
     [118]: Scenario118,
     [119]: Scenario119,
+    [120]: Scenario120,
+    [121]: Scenario121,
+    [122]: Scenario122,
 }
