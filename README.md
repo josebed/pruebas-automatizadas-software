@@ -191,41 +191,94 @@ Una vez finalizado el paso anterior se generaran 2 reportes:
 | Permite la integración con Playwright y Puppeteer | Requiere se indique el elemento de referencia |
 | Generar reporte automatico  | Se debe aprobar los escenarios válidos |
 
-### Pruebas con Puppeteer usando DataPool
-| Escenario| tipo | Acciones | 
-|---|---|---|
-| Add navegacion | Positivo | Se realiza login, y se adiciona un menu de navegacion |
-| Add navegacion | Negativo - label invalido | Se realiza login, y no se adiciona un menu de navegacion  |
-| Add navegacion | Negativo - url invalido | Se realiza login, y no se adiciona un menu de navegacion |
-| Add miembro | Positivo | Se realiza login, y se adiciona un miembro |
-| Add miembro | Positivo - Solo con correo | Se realiza login, y se adiciona un menu de navegacion  |
-| Add miembro | Positivo - nombre longitud igual a 190 | Se realiza login, y se adiciona miembro |
-| Add miembro | Positivo - nombre longitud igual a 191 | Se realiza login, y se adiciona miembro |
-| Add miembro | Negativo - nombre longitud igual a 192 | Se realiza login, y no se adiciona miembro |
-| Add miembro | Positivo - correo longitud igual a 190 | Se realiza login, y se adiciona miembro |
-| Add miembro | Positivo - correo longitud igual a 191 | Se realiza login, y se adiciona miembro |
-| Add miembro | Negativo - correo invalido longitud igual a 192 | Se realiza login, y no se adiciona miembro |
-| Add miembro | Negativo - correo dominio invalido | Se realiza login, y no se adiciona miembro |
-| Add miembro | Positivo - notas longitud 499 | Se realiza login, y se adiciona miembro |
-| Add miembro | Positivo - notas longitud 500 | Se realiza login, y se adiciona miembro |
-| Add miembro | Negativo - notas longitud 501 | Se realiza login, y no se adiciona miembro |
-| Invite Staff | Positivo - rol contributor | Se realiza login, y se envia invitacion |
-| Invite Staff | Positivo - rol author | Se realiza login, y se envia invitacion |
-| Invite Staff | Positivo - rol editor | Se realiza login, y se envia invitacion |
-| Invite Staff | Positivo - rol administrador | Se realiza login, y se envia invitacion |
-| Invite Staff | Positivo | Se realiza login, y se envia invitacion |
-| Invite Staff | Positivo | Se realiza login, y se envia invitacion |
-| Invite Staff | Positivo | Se realiza login, y se envia invitacion |
-| Invite Staff | Positivo | Se realiza login, y se envia invitacion |
-| Invite Staff | Positivo | Se realiza login, y se envia invitacion |
-| Invite Staff | Positivo | Se realiza login, y se envia invitacion |
-| Invite Staff | Positivo - correo longitud igual a 190 | Se realiza login, y se envia invitacion |
-| Invite Staff | Positivo - correo longitud igual a 191 | Se realiza login, y se envia invitacion |
-| Invite Staff | Negativo - correo longitud igual a 192 | Se realiza login, y no se envia invitacion |
+## SEMANA 7
 
+## Puppeteer
 
+En el siguiente apartado se tratará una guía para ejecutar las pruebas en un entorno local usando puppeteer.
 
+### Requerimientos
 
+Node 16.13.0
+ghost
 
+Se cuenta con un tutorial para la instalación de ghost según la documentación oficial en el siguiente [enlace](https://ghost.org/docs/ghost-cli/#ghost-install)
 
+### Ejecución
+
+#### Instalar ghost
+
+Luego de tener instalado el node y el ghost, se debe correr el siguiente comando sobre una carpeta vacía en la cual se van a ejecutar las pruebas:
+```sh
+ghost install local
+```
+
+Al terminar, se ejecutará ghost en la ruta local localhost:2368. En caso de ser la primera vez que se instala es recomendable saltarse el próximo paso e ir directamente a la ejecución de las pruebas.
+
+#### Ejecutar ghost
+
+En caso de ya tener una versión instalada de ghost, se recomienda borrar el archivo .db que hay en la carpeta data para poder correr como nuevo la instalación de ghost usando luego el comando:
+```sh
+ghost start
+```
+#### Correr las Pruebas
+
+Las pruebas de escenarios generados con faker y demás estrategias adicionales están en la carpeta puppeteerPD, allí se ejecutarán los escenarios y se generarán los artifacts.
+
+En caso de ser la primera vez que se corre el script (o de tener vacía la carpeta data como se sugiere que se haga), se debe ejecturar el siguiente comando dentro de la carpeta puppeteer:
+```sh
+node index.js --clean
+```
+Esto va a permitir crear el blog usando la información en el archivo properties.json
+
+Cada escenario se ejecuta de manera aislada y secuencial, dejando en claro el propósito de cada uno, el flujo, si es negativo o positivo, el tipo de datos que se están usando y el resultado de la prueba.
+
+#### Revisión de artifacts
+
+Al terminar, podrá verse en la carpeta artifacts una carpeta con cada escenario retratando paso a paso una captura de pantalla del proceso que se llevó a cabo.
+
+## Kraken
+
+### Software:
+1. Node js, v16.13.0
+1. Kraken: descargar siguiendo https://thesoftwaredesignlab.github.io/KrakenMobile/
+2. Ghost versión 4.42, con la configuración incial: crear usuario y sitio.
+
+### Ejecución:
+1. Clonar el repositorio https://github.com/josebed/pruebas-automatizadas-software, branch main
+2. Ubicarse dentro del path krakenPD
+3. Ejecutar npm install
+4. Instalar kraken local: npm install kraken-node
+5. Abrir el archivos properties.json y cambiar las credenciales: url, username y password según haya configurado el ambiente.
+6. Ejecutar los escenarios: ./node_modules/kraken-node/bin/kraken-node run --properties=properties.json
+7. En la carpete reports se alamacenarán los reportes de la ejecución.
+
+## Estrategia de pruebas
+
+### Se realizaron pruebas haciendo uso de:
+1. Pool de datos a priori: se usaron para login, casos de valores de frontera (máximo número de caracteres soportado por un campo de entrada), pruebas con entradas vacías. 
+  - Para la generación de datos aleatorios para pruebas de frontera, se empleó la herramienta https://es.lipsum.com/
+  - Los datos, en el caso de Kraken, se encuentran dentro del archivo properties.json
+  - Los datos, en el caso de Puppeteer, se encuentran en el archivo datapool.json
+3. Pool de datos pseudo-aleatorios: Se usaron para crear posts, pages, tags, entre otros, mediante la herramienta faker de kraken y se usaron luego para validar información del éxito o errores en la ejecución de los escenarios.
+4. Datos aleatorios: Se usaron mediante las librerías faker de javascript y faker de kraken, en la generación de posts, pages, tags, members, modificación de settings, datos que no se volvieron a requerir en la ejecución.
+
+### Funcionalidades:
+1. Log in
+2. Post: crear, listar, preview, modificar, settings.
+3. Tag: Crear, lista.
+4. Page: Crear, listar.
+5. Memebers: Crear, listar.
+6. Staff: invite, listar.
+7. Navegación: Crear, listar.
+8. Editar perfil
+9. Settings: General
+
+### Estrategias:
+1. Se realizó por lo menos una prueba exitosa por cada funcionalidad probada.
+2. Se realizaron pruebas de creación de diferentes funcionalidades, teniendo todos los campos vacíos.
+3. Se realizaron pruebas de valores de frontera para diferentes campos en diferentes funcionalidades: con número máximo de caracteres permitos, uno por encima y uno por debajo.
+4. Se realizaron pruebas con valores de correo electrónico errado.
+5. Se realizaron pruebas con algunos campos obligatorios vacíos.
+6. Se realizaron pruebas en las herramientas: Kraken (60) y Puppeteer (60).
 

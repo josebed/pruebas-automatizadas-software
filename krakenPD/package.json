@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "expect-webdriverio": "^3.4.0",
     "kraken-node": "^1.0.24"
   }
 }
