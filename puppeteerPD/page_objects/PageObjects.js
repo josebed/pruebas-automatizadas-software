@@ -232,8 +232,8 @@ module.exports = {
     }
     await page.screenshot({ path: `${basePath}/formPost.jpg` });
   },
-  GetSiblingInputByP: async(page, value) => {
-    const ID = await page.evaluate((value) => {
+  GetSiblingInputByP: async(page, value, fieldType="INPUT") => {
+    const ID = await page.evaluate((value, fieldType) => {
       const allP = Array.from(document.querySelectorAll("p"));
       const currentP = allP.find(
         (element) => element.textContent.includes(value)
@@ -242,9 +242,9 @@ module.exports = {
       const siblings = Array.from(parentNode.childNodes);
 
       return siblings.find(
-        (element) => element.tagName === "INPUT"
+        (element) => element.tagName === fieldType
       ).id;
-    }, value);
+    }, value, fieldType);
 
     return ID;
   },

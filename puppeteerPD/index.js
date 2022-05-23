@@ -50,27 +50,27 @@ const ScenarioMapper = require("./scenarios/ScenarioMapper");
     console.log("Scenario32 (Negativo): Login + addNavigation(url sin protocolo) result: " + r);
   });
   await Scenario101().then(r => {
-    console.log("Scenario101 (Positivo): Login + Settings + Nuevo título(Datos aleatorios) reuslt: " + r);
+    console.log("Scenario101 (Positivo): Login + Settings + Nuevo título(Datos aleatorios) result: " + r);
   });
   await Scenario102().then(r => {
-    console.log("Scenario102 (Positivo): Login + Settings + Nuevo título(Datos vacíos) reuslt: " + r);
+    console.log("Scenario102 (Positivo): Login + Settings + Nuevo título(Datos vacíos) result: " + r);
   });
   await Scenario103().then(r => {
-    console.log("Scenario103 (Positivo): Login + Settings + Nueva Descripción(Datos aleatorios) reuslt: " + r);
+    console.log("Scenario103 (Positivo): Login + Settings + Nueva Descripción(Datos aleatorios) result: " + r);
   });
   await Scenario104().then(r => {
-    console.log("Scenario104 (Positivo): Login + Settings + Nueva Descripción(Datos vacíos) reuslt: " + r);
+    console.log("Scenario104 (Positivo): Login + Settings + Nueva Descripción(Datos vacíos) result: " + r);
   });
   await Scenario105().then(r => {
-    console.log("Scenario105 (Positivo): Login + Settings + Nuevo Idioma(Datos aleatorios) reuslt: " + r);
+    console.log("Scenario105 (Positivo): Login + Settings + Nuevo Idioma(Datos aleatorios) result: " + r);
   });
   await Scenario106().then(r => {
-    console.log("Scenario106 (Negativo): Login + Settings + Nuevo Idioma(Datos vacíos) reuslt: " + r);
+    console.log("Scenario106 (Negativo): Login + Settings + Nuevo Idioma(Datos vacíos) result: " + r);
   });
   await Scenario107().then(r => {
-    console.log("Scenario107 (Positivo): Login + Settings + Nuevo Meta Title(Datos aleatorios) reuslt: " + r);
+    console.log("Scenario107 (Positivo): Login + Settings + Nuevo Meta Title(Datos aleatorios) result: " + r);
   });
   await Scenario108().then(r => {
-    console.log("Scenario108 (Negativo): Login + Settings + Nuevo Meta Title(Datos vacíos) reuslt: " + r);
+    console.log("Scenario108 (Negativo): Login + Settings + Nuevo Meta Title(Datos vacíos) result: " + r);
   });
 })();
