@@ -1,8 +1,9 @@
+const { faker } = require('@faker-js/faker');
 const puppeteer = require("puppeteer");
 const PageObjects = require("../page_objects/PageObjects");
-const Properties = require("../properties.json");
+const dataPool = require("./../dataPool");
 
-const SCENARIO = "./artifacts/scenario12";
+const SCENARIO = "./artifacts/scenario38";
 
 module.exports = async () => {
   // Given a Browser with an account created
@@ -19,14 +20,15 @@ module.exports = async () => {
   await page.goto("http://localhost:2368/ghost");
   await new Promise((r) => setTimeout(r, 500));
 
-  // When I Log In and delete a link navigation
+  // When I Log In and add a member
   await PageObjects.LogIn(page, SCENARIO);
-  await PageObjects.DeletePrimaryNavigation(page, SCENARIO);
+  const result =  await PageObjects.AddMember(page, SCENARIO,  faker.lorem.word(192), dataPool.member.mail);
   
-  // Then, I shouldn't see the element deleted listed
-  await page.goto("http://localhost:2368/ghost/#/settings/navigation");
+  // Then, I should see the member listed
+  await page.goto("http://localhost:2368/ghost/#/members");
   await new Promise((r) => setTimeout(r, 500));
-  await page.screenshot({ path: `${SCENARIO}/NavigationList.jpg` });
+  await page.screenshot({ path: `${SCENARIO}/MemberList.jpg` });
 
   await browser.close();
+  return result;
 };
