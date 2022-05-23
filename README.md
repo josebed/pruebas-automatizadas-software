@@ -253,4 +253,5 @@ Una vez finalizado el paso anterior se generaran 2 reportes:
 3. Se realizaron pruebas de valores de frontera para diferentes campos en diferentes funcionalidades: con número máximo de caracteres permitos, uno por encima y uno por debajo.
 4. Se realizaron pruebas con valores de correo electrónico errado.
 5. Se realizaron pruebas con algunos campos obligatorios vacíos.
+6. Se realizaron pruebas en las herramientas: Kraken (60) y Puppeteer (60).
 
