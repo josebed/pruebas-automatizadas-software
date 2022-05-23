@@ -236,3 +236,18 @@ Una vez finalizado el paso anterior se generaran 2 reportes:
 5. Abrir el archivos properties.json y cambiar las credenciales: url, username y password según haya configurado el ambiente.
 6. Ejecutar los escenarios: ./node_modules/kraken-node/bin/kraken-node run --properties=properties.json
 7. En la carpete reports se alamacenarán los reportes de la ejecución.
+
+## Estrategia de pruebas
+
+### Se realizaron pruebas haciendo uso de:
+1. Pool de datos a priori: se usaron para login, casos de valores de frontera (máximo número de caracteres soportado por un campo de entrada), pruebas con entradas vacías.
+2. Pool de datos pseudo-aleatorios: Se usaron para crear posts, pages, tags, entre otros, mediante la herramienta faker de kraken y se usaron luego para validar información del éxito o errores en la ejecución de los escenarios.
+3. Datos aleatorios: Se usaron mediante las librerías faker de javascript y faker de kraken, en la generación de posts, pages, tags, members, modificación de settings, datos que no se volvieron a requerir en la ejecución.
+
+### Estrategias:
+1. Se realizó por lo menos una prueba exitosa por cada funcionalidad probada.
+2. Se realizaron pruebas de creación de diferentes funcionalidades, teniendo todos los campos vacíos.
+3. Se realizaron pruebas de valores de frontera para diferentes campos en diferentes funcionalidades: con número máximo de caracteres permitos, uno por encima y uno por debajo.
+4. Se realizaron pruebas con valores de correo electrónico errado.
+5. Se realizaron pruebas con algunos campos obligatorios vacíos.
+
