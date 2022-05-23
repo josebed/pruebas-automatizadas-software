@@ -1,0 +1,350 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "create-tag;ingreso-a-la-aplicación-y-creo-un-tag-descripción-de-500-caracteres",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Ingreso a la aplicación y creo un tag descripción de 500 caracteres",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "failed",
+              "duration": 1361000000,
+              "error_message": "ErrorEvent {\n  [Symbol(kTarget)]: WebSocket {\n    _events: [Object: null prototype] { open: [Function], error: [Function] },\n    _eventsCount: 2,\n    _maxListeners: undefined,\n    _binaryType: 'nodebuffer',\n    _closeCode: 1006,\n    _closeFrameReceived: false,\n    _closeFrameSent: false,\n    _closeMessage: <Buffer >,\n    _closeTimer: null,\n    _extensions: {},\n    _paused: false,\n    _protocol: '',\n    _readyState: 3,\n    _receiver: null,\n    _sender: null,\n    _socket: null,\n    _bufferedAmount: 0,\n    _isServer: false,\n    _redirects: 0,\n    _url: 'ws://localhost:44993/devtools/browser/57a26494-f00e-4d34-bc58-4b679c961539',\n    _originalHost: 'localhost:44993',\n    _req: null,\n    [Symbol(kCapture)]: false\n  },\n  [Symbol(kType)]: 'error',\n  [Symbol(kError)]: Error: read ECONNRESET\n      at TCP.onStreamRead (node:internal/stream_base_commons:217:20) {\n    errno: -104,\n    code: 'ECONNRESET',\n    syscall: 'read',\n    [Symbol(originalCallSite)]: [ CallSite {} ],\n    [Symbol(mutatedCallSite)]: [ CallSite {} ]\n  },\n  [Symbol(kMessage)]: 'read ECONNRESET'\n}"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "I navigate to page \"<url>\"",
+            "match": {
+              "location": "node_modules/kraken-node/lib/steps/web.js:41"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "I wait for 2 seconds",
+            "match": {
+              "location": "node_modules/kraken-node/lib/steps/both.js:73"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "I enter username \"<username>\"",
+            "match": {
+              "location": "features/web/step_definitions/base.js:4"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "I wait for 1 seconds",
+            "match": {
+              "location": "node_modules/kraken-node/lib/steps/both.js:73"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "I enter password \"<password>\"",
+            "match": {
+              "location": "features/web/step_definitions/base.js:9"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "I click on sign in",
+            "match": {
+              "location": "features/web/step_definitions/base.js:14"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "I wait for 2 seconds",
+            "match": {
+              "location": "node_modules/kraken-node/lib/steps/both.js:73"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 15,
+            "name": "I click on tags",
+            "match": {
+              "location": "features/web/step_definitions/tag.js:4"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 16,
+            "name": "I wait for 1 seconds",
+            "match": {
+              "location": "node_modules/kraken-node/lib/steps/both.js:73"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "I click on new tag",
+            "match": {
+              "location": "features/web/step_definitions/tag.js:9"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 18,
+            "name": "I wait for 1 seconds",
+            "match": {
+              "location": "node_modules/kraken-node/lib/steps/both.js:73"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 19,
+            "name": "I click on tag name",
+            "match": {
+              "location": "features/web/step_definitions/tag.js:14"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 20,
+            "name": "I enter text \"$name_2\"",
+            "match": {
+              "location": "node_modules/kraken-node/lib/steps/web.js:65"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 21,
+            "name": "I wait for 1 seconds",
+            "match": {
+              "location": "node_modules/kraken-node/lib/steps/both.js:73"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 22,
+            "name": "I click on tag description",
+            "match": {
+              "location": "features/web/step_definitions/tag.js:19"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 23,
+            "name": "I wait for 1 seconds",
+            "match": {
+              "location": "node_modules/kraken-node/lib/steps/both.js:73"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 24,
+            "name": "I enter text \"<tagDescription500>\"",
+            "match": {
+              "location": "node_modules/kraken-node/lib/steps/web.js:65"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 25,
+            "name": "I wait for 1 seconds",
+            "match": {
+              "location": "node_modules/kraken-node/lib/steps/both.js:73"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 26,
+            "name": "I click on save",
+            "match": {
+              "location": "features/web/step_definitions/tag.js:24"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 29,
+            "name": "I click on tags",
+            "match": {
+              "location": "features/web/step_definitions/tag.js:4"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 30,
+            "name": "I wait for 1 seconds",
+            "match": {
+              "location": "node_modules/kraken-node/lib/steps/both.js:73"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 31,
+            "name": "I should see tag \"$$name_2\"",
+            "match": {
+              "location": "features/web/step_definitions/tag.js:29"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 32,
+            "name": "I wait for 1 seconds",
+            "match": {
+              "location": "node_modules/kraken-node/lib/steps/both.js:73"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "failed",
+              "duration": 11000000,
+              "error_message": "TypeError: Cannot read properties of undefined (reading 'deleteSession')\n    at WebClient.<anonymous> (/home/jose/kraken-ghost/pruebas-automatizadas-software/krakenPD/node_modules/kraken-node/lib/clients/WebClient.js:109:59)\n    at step (/home/jose/kraken-ghost/pruebas-automatizadas-software/krakenPD/node_modules/kraken-node/lib/clients/WebClient.js:59:23)\n    at Object.next (/home/jose/kraken-ghost/pruebas-automatizadas-software/krakenPD/node_modules/kraken-node/lib/clients/WebClient.js:40:53)\n    at /home/jose/kraken-ghost/pruebas-automatizadas-software/krakenPD/node_modules/kraken-node/lib/clients/WebClient.js:34:71\n    at new Promise (<anonymous>)\n    at __awaiter (/home/jose/kraken-ghost/pruebas-automatizadas-software/krakenPD/node_modules/kraken-node/lib/clients/WebClient.js:30:12)\n    at WebClient.stop (/home/jose/kraken-ghost/pruebas-automatizadas-software/krakenPD/node_modules/kraken-node/lib/clients/WebClient.js:104:16)\n    at WebClient.<anonymous> (/home/jose/kraken-ghost/pruebas-automatizadas-software/krakenPD/node_modules/kraken-node/lib/clients/Client.js:109:51)\n    at step (/home/jose/kraken-ghost/pruebas-automatizadas-software/krakenPD/node_modules/kraken-node/lib/clients/Client.js:67:23)\n    at Object.next (/home/jose/kraken-ghost/pruebas-automatizadas-software/krakenPD/node_modules/kraken-node/lib/clients/Client.js:48:53)\n    at fulfilled (/home/jose/kraken-ghost/pruebas-automatizadas-software/krakenPD/node_modules/kraken-node/lib/clients/Client.js:39:58)"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@user1",
+            "line": 3
+          },
+          {
+            "name": "@web",
+            "line": 3
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "create-tag",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Create Tag",
+    "tags": [],
+    "uri": "features/asc2_tag_createDescriptionLimit.feature"
+  }
+]
