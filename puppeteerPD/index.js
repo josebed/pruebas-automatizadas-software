@@ -28,6 +28,10 @@ const Scenario123 = require("./scenarios/Scenario123");
 const Scenario124 = require("./scenarios/Scenario124");
 const Scenario125 = require("./scenarios/Scenario125");
 const Scenario126 = require("./scenarios/Scenario126");
+const Scenario127 = require("./scenarios/Scenario127");
+const Scenario128 = require("./scenarios/Scenario128");
+const Scenario129 = require("./scenarios/Scenario129");
+const Scenario130 = require("./scenarios/Scenario130");
 const PageObjects = require("../puppeteer/page_objects/PageObjects");
 const ScenarioMapper = require("./scenarios/ScenarioMapper");
 
@@ -144,5 +148,17 @@ const ScenarioMapper = require("./scenarios/ScenarioMapper");
   });
   await Scenario126().then(r => {
     console.log("Scenario126 (Positivo): Login + Settings + Nuevo Facebook Link(Datos fijos) result: " + r);
+  });
+  await Scenario127().then(r => {
+    console.log("Scenario127 (Negativo): Login + Settings + Nuevo Twitter Link(Datos con mal formato) result: " + r);
+  });
+  await Scenario128().then(r => {
+    console.log("Scenario128 (Negativo): Login + Settings + Nuevo Twitter Link(Datos vacíos) result: " + r);
+  });
+  await Scenario129().then(r => {
+    console.log("Scenario129 (Negativo): Login + Settings + Nuevo Twitter Link(Datos inválidos) result: " + r);
+  });
+  await Scenario130().then(r => {
+    console.log("Scenario130 (Positivo): Login + Settings + Nuevo Twitter Link(Datos fijos) result: " + r);
   });
 })();
