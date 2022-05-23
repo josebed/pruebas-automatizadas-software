@@ -19,7 +19,7 @@ module.exports = async () => {
   await page.goto("http://localhost:2368/ghost");
   await new Promise((r) => setTimeout(r, 500));
 
-  // When I Log In and change the title
+  // When I Log In and change the title...
   await PageObjects.LogIn(page, SCENARIO);
   await page.goto("http://localhost:2368/ghost/#/settings/general");
   await new Promise((r) => setTimeout(r, 100));
@@ -29,14 +29,25 @@ module.exports = async () => {
   await new Promise((r) => setTimeout(r, 200));
   const fieldID = await PageObjects.GetSiblingInputByP(page, "The name of your site");
   await PageObjects.ClearInputByID(page, fieldID);
+
+  //...to something random...
   const fields = {
     [`#${fieldID}`]: faker.lorem.words(),
   };
   await PageObjects.TypeFormFields(page, fields, SCENARIO);
+
+  //...and hit save
   await page.evaluate(() => {
     return document.querySelectorAll(".gh-btn")[0].click()
   });
   await new Promise((r) => setTimeout(r, 200));
+
+  // I should get the new title
   await page.screenshot({ path: `${SCENARIO}/SettingsPage.jpg` });
+  const isSaved = await page.evaluate(() => {
+    return document.querySelectorAll(".gh-btn")[0].classList.contains('gh-btn-green');
+  });
   await browser.close();
+
+  return isSaved ? "Success" : "Failed" ;
 };

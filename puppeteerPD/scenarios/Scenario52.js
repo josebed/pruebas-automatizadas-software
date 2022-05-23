@@ -1,8 +1,8 @@
 const puppeteer = require("puppeteer");
 const PageObjects = require("../page_objects/PageObjects");
-const Properties = require("../properties.json");
-
-const SCENARIO = "./artifacts/scenario18";
+const dataPool = require("./../dataPool");
+const dataPoolApriori = require("./../dataPool.json");
+const SCENARIO = "./artifacts/scenario52";
 
 module.exports = async () => {
   // Given a Browser with an account created
@@ -19,14 +19,15 @@ module.exports = async () => {
   await page.goto("http://localhost:2368/ghost");
   await new Promise((r) => setTimeout(r, 500));
 
-  // When I Log In and Edit a member
+  // When I Log In and invited a editor staff
   await PageObjects.LogIn(page, SCENARIO);
-  await PageObjects.DeleteMember(page, SCENARIO);
+  const result = await PageObjects.InviteStaff(page, SCENARIO, faker.fake(`${faker.lorem.word(192)}@${faker.internet.domainName}`));
   
-  // Then, I shouldn't see the member deleted listed
-  await page.goto("http://localhost:2368/ghost/#/members");
+  // Then I should see it in the list of invited users.
+  await page.goto("http://localhost:2368/ghost/#/settings/staff");
   await new Promise((r) => setTimeout(r, 500));
-  await page.screenshot({ path: `${SCENARIO}/MemberList.jpg` });
+  await page.screenshot({ path: `${SCENARIO}/StaffList.jpg` });
 
   await browser.close();
+  return result;
 };

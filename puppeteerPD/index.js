@@ -15,18 +15,31 @@ const Scenario42 = require("./scenarios/Scenario42");
 const Scenario43 = require("./scenarios/Scenario43");
 const Scenario44 = require("./scenarios/Scenario44");
 const Scenario45 = require("./scenarios/Scenario45");
+const Scenario46 = require("./scenarios/Scenario46");
+const Scenario47 = require("./scenarios/Scenario47");
+const Scenario48 = require("./scenarios/Scenario48");
+const Scenario49 = require("./scenarios/Scenario49");
+const Scenario50 = require("./scenarios/Scenario50");
+const Scenario51 = require("./scenarios/Scenario51");
+const Scenario52 = require("./scenarios/Scenario52");
+const Scenario53 = require("./scenarios/Scenario53");
+const Scenario54 = require("./scenarios/Scenario54");
+// const Scenario46 = require("./scenarios/Scenario46");
+
 const ScenarioMapper = require("./scenarios/ScenarioMapper");
 
 (async () => {
   const flag = process.argv.slice(2);
   if (Object.keys(ScenarioMapper).includes(flag[0])) {
     console.log("Flag for individual scenario found", flag[0]);
-    await ScenarioMapper[flag[0]]();
+    const response = await ScenarioMapper[flag[0]]();
+    console.log(`Scenario${flag[0]} result: ${response}`);
     return
   }
   if (flag == "--clean") {
     const browser = await puppeteer.launch({
-      headless: true,
+      headless: false,
+      slowMo: 50,
       ignoreHTTPSErrors: true,
       args: [`--window-size=1920,1080`],
       defaultViewport: {
@@ -42,6 +55,7 @@ const ScenarioMapper = require("./scenarios/ScenarioMapper");
     await browser.close();
     console.log("Blog Creation Done!");
   }
+  /*
   await Scenario31().then(r => {
     console.log("Scenario31 (Positivo): Login + addNavigation(valid data) result: " + r);
   });
@@ -86,5 +100,36 @@ const ScenarioMapper = require("./scenarios/ScenarioMapper");
   });
   await Scenario45().then(r => {
     console.log("Scenario45 (Negativo): Login + add member(note long = 501) result: " + r);
+  });
+  await Scenario46().then(r => {
+    console.log("Scenario46 (Positivo): Login + invited contributer(valid data) result: " + r);
+  });
+  await Scenario47().then(r => {
+    console.log("Scenario47 (Positivo): Login + invited author(valid data) result: " + r);
+  });
+  await Scenario48().then(r => {
+    console.log("Scenario48 (Positivo): Login + invited editor(valid data) result: " + r);
+  });
+  await Scenario49().then(r => {
+    console.log("Scenario49 (Positivo): Login + invited adiministrator(valid data) result: " + r);
+  });
+  await Scenario50().then(r => {
+    console.log("Scenario50 (Positivo): Login + invited contributor (mail long = 190) result: " + r);
+  });
+  await Scenario51().then(r => {
+    console.log("Scenario51 (Positivo): Login + invited contributor (mail long = 191) result: " + r);
+  });
+  await Scenario52().then(r => {
+    console.log("Scenario52 (Positivo): Login + invited contributor (mail long = 192) result: " + r);
+  });
+  await Scenario53().then(r => {
+    console.log("Scenario53 (Positivo): Login + invited contributor (invalid mail) result: " + r);
+  });
+  */
+  await Scenario54().then(r => {
+    console.log("Scenario54 (Positivo): Login + edit profile (valid data) result: " + r);
+  });
+  await Scenario101().then(r => {
+    console.log("Scenario101 (Positivo): Login + Settings + Nuevo título(Datos aleatorios) reuslt: " + r);
   });
 })();

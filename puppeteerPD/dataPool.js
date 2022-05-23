@@ -9,6 +9,17 @@ module.exports = {
     name:  faker.name.findName(),
     mail:  faker.internet.email(),
     mailEspecialChar:  faker.internet.exampleEmail({ allowSpecialCharacters: true })
+  },
+  staff: {
+    mail:  faker.internet.email(),
+    mailEspecialChar:  faker.internet.exampleEmail({ allowSpecialCharacters: true })
+  },
+  profile: {
+    name:  faker.name.findName(),
+    slug: faker.lorem.slug(),
+    mail:  faker.internet.email(),
+    mailEspecialChar:  faker.internet.exampleEmail({ allowSpecialCharacters: true }),
+    location: faker.address.cityName()
   }
 };
 

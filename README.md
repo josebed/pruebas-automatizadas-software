@@ -191,6 +191,37 @@ Una vez finalizado el paso anterior se generaran 2 reportes:
 | Permite la integración con Playwright y Puppeteer | Requiere se indique el elemento de referencia |
 | Generar reporte automatico  | Se debe aprobar los escenarios válidos |
 
+### Pruebas con Puppeteer usando DataPool
+| Escenario| tipo | Acciones | 
+|---|---|---|
+| Add navegacion | Positivo | Se realiza login, y se adiciona un menu de navegacion |
+| Add navegacion | Negativo - label invalido | Se realiza login, y no se adiciona un menu de navegacion  |
+| Add navegacion | Negativo - url invalido | Se realiza login, y no se adiciona un menu de navegacion |
+| Add miembro | Positivo | Se realiza login, y se adiciona un miembro |
+| Add miembro | Positivo - Solo con correo | Se realiza login, y se adiciona un menu de navegacion  |
+| Add miembro | Positivo - nombre longitud igual a 190 | Se realiza login, y se adiciona miembro |
+| Add miembro | Positivo - nombre longitud igual a 191 | Se realiza login, y se adiciona miembro |
+| Add miembro | Negativo - nombre longitud igual a 192 | Se realiza login, y no se adiciona miembro |
+| Add miembro | Positivo - correo longitud igual a 190 | Se realiza login, y se adiciona miembro |
+| Add miembro | Positivo - correo longitud igual a 191 | Se realiza login, y se adiciona miembro |
+| Add miembro | Negativo - correo invalido longitud igual a 192 | Se realiza login, y no se adiciona miembro |
+| Add miembro | Negativo - correo dominio invalido | Se realiza login, y no se adiciona miembro |
+| Add miembro | Positivo - notas longitud 499 | Se realiza login, y se adiciona miembro |
+| Add miembro | Positivo - notas longitud 500 | Se realiza login, y se adiciona miembro |
+| Add miembro | Negativo - notas longitud 501 | Se realiza login, y no se adiciona miembro |
+| Invite Staff | Positivo - rol contributor | Se realiza login, y se envia invitacion |
+| Invite Staff | Positivo - rol author | Se realiza login, y se envia invitacion |
+| Invite Staff | Positivo - rol editor | Se realiza login, y se envia invitacion |
+| Invite Staff | Positivo - rol administrador | Se realiza login, y se envia invitacion |
+| Invite Staff | Positivo | Se realiza login, y se envia invitacion |
+| Invite Staff | Positivo | Se realiza login, y se envia invitacion |
+| Invite Staff | Positivo | Se realiza login, y se envia invitacion |
+| Invite Staff | Positivo | Se realiza login, y se envia invitacion |
+| Invite Staff | Positivo | Se realiza login, y se envia invitacion |
+| Invite Staff | Positivo | Se realiza login, y se envia invitacion |
+| Invite Staff | Positivo - correo longitud igual a 190 | Se realiza login, y se envia invitacion |
+| Invite Staff | Positivo - correo longitud igual a 191 | Se realiza login, y se envia invitacion |
+| Invite Staff | Negativo - correo longitud igual a 192 | Se realiza login, y no se envia invitacion |
 
 
 

@@ -1,8 +1,8 @@
 const puppeteer = require("puppeteer");
 const PageObjects = require("../page_objects/PageObjects");
-const Properties = require("../properties.json");
-
-const SCENARIO = "./artifacts/scenario13";
+const dataPool = require("./../dataPool");
+const dataPoolApriori = require("./../dataPool.json");
+const SCENARIO = "./artifacts/scenario46";
 
 module.exports = async () => {
   // Given a Browser with an account created
@@ -21,7 +21,7 @@ module.exports = async () => {
 
   // When I Log In and invited a editor staff
   await PageObjects.LogIn(page, SCENARIO);
-  await PageObjects.InviteEditorStaff(page, SCENARIO);
+  const result = await PageObjects.InviteStaff(page, SCENARIO, dataPool.staff.mail, dataPoolApriori.staff.contributor);
   
   // Then I should see it in the list of invited users.
   await page.goto("http://localhost:2368/ghost/#/settings/staff");
@@ -29,4 +29,5 @@ module.exports = async () => {
   await page.screenshot({ path: `${SCENARIO}/StaffList.jpg` });
 
   await browser.close();
+  return result;
 };

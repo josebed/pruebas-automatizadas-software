@@ -1,7 +1,7 @@
 const { faker } = require('@faker-js/faker');
 const puppeteer = require("puppeteer");
 const PageObjects = require("../page_objects/PageObjects");
-const dataPool = require("./../dataPool");
+const dataPoolApriori = require("./../dataPool.json");
 
 const SCENARIO = "./artifacts/scenario39";
 

@@ -25,10 +25,7 @@ module.exports = {
     await new Promise((r) => setTimeout(r, 500));
     await page.screenshot({ path: `${basePath}/LoggedIn.jpg` });
   },
-  /*====================================*/
-  /*-----> Escenarios modificados <-----*/
-  /*====================================*/
-  AddPrimaryNavigation: async (page, basePath, label, URL, typeScenario) => {
+  AddPrimaryNavigation: async (page, basePath, label, URL) => {
     
     await page.click('[href="#/settings/"]');
     await new Promise((r) => setTimeout(r, 500));
@@ -64,20 +61,20 @@ module.exports = {
     await page.screenshot({ path: `${basePath}/2-StaffInvitePeople.jpg` });
 
     if(mail !== undefined) {
-      await page.type("#member-email", mail);
+      await page.type("#new-user-email", mail);
     }
-    if(notes !== undefined) {
-      await page.type("#member-note", notes);
-    }
-
-    await page.type("#new-user-email", "puppeteer@gmail.com");
-    await page.click(".gh-roles-container > .gh-radio:nth-child(3)");
+    if(role !== undefined) {
+      await page.click(`.gh-roles-container > .gh-radio:nth-child(${role})`);
+    }    
     await new Promise((r) => setTimeout(r, 500));
     await page.screenshot({ path: `${basePath}/3-StaffFillForm.jpg` });
 
     await page.click(".modal-footer > button");
     await new Promise((r) => setTimeout(r, 500));
     await page.screenshot({ path: `${basePath}/4-StaffInvited.jpg` });
+    const errorMail = await page.$(".modal-body .error > p");
+    const resultErrorMail = await page.evaluate(el => el === null, errorMail);  
+    return  await resultErrorMail? "Saved": "Error"
   },
   AddMember: async (page, basePath, name, mail, notes) => {
     await page.click('[href="#/members/"]');
@@ -110,10 +107,9 @@ module.exports = {
     const resultErrorName =  await page.evaluate(el => el !== null, errorName);  
     const resultErrorMail = await page.evaluate(el => el === null, errorMail);
     const resultErrorNotes = await page.evaluate(el => el === null, errorNotes);
-    console.log(resultErrorName, resultErrorMail, resultErrorNotes)  
     return  await resultErrorName && resultErrorMail && resultErrorNotes ? "Saved": "Error"
   },
-  EditProfile: async (page, basePath) => {
+  EditProfile: async (page, basePath, name, slug, mail, location) => {
     await page.click(".gh-user-avatar");
     await new Promise((r) => setTimeout(r, 500));
     await page.screenshot({ path: `${basePath}/1-Profile.jpg` });
@@ -121,9 +117,29 @@ module.exports = {
     await page.click('.dropdown-menu[role="menu"] > li:nth-child(4)');
     await new Promise((r) => setTimeout(r, 500));
     await page.screenshot({ path: `${basePath}/2-ProfileMenu.jpg` });
+    console.log('profile', name, slug, mail, location);
+    if(name !== undefined) {
+      await page.evaluate(() =>document.querySelector("#user-name").value = '');
+      await page.type("#user-name", name);
+      console.log('profile-1');
+    }
+    if(slug !== undefined) {
+      await page.evaluate(() =>document.querySelector("#user-slug").value = '');
+      await page.type("#user-slug", slug);
+      console.log('profile-2');
+    }
+    if(mail !== undefined) {
+      await page.evaluate(() =>document.querySelector("#user-email").value = '');
+      await page.type("#user-email", mail);
+      console.log('profile-3');
+    }
+    if(location !== undefined) {
+      await page.evaluate(() =>document.querySelector("user-location").value = '');
+      await page.type("user-location", location);
+      console.log('profile-4');
+    }
+    console.log('profile-5')
 
-    await page.type("#user-name", " Edited");
-    await page.type("#user-location", "Un lugar del mundo");
     await new Promise((r) => setTimeout(r, 500));
     await page.screenshot({ path: `${basePath}/3-ProfileEditField.jpg` });
 

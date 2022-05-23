@@ -22,7 +22,7 @@ module.exports = async () => {
 
   // When I Log In and add a member
   await PageObjects.LogIn(page, SCENARIO);
-  const result =  await PageObjects.AddMember(page, SCENARIO,  faker.lorem.word(192), dataPool.member.mail);
+  const result =  await PageObjects.AddMember(page, SCENARIO,  faker.lorem.word(192), faker.internet.email());
   
   // Then, I should see the member listed
   await page.goto("http://localhost:2368/ghost/#/members");

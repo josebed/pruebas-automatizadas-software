@@ -5,6 +5,11 @@
       "password": "K8PFuYW3FRBxwFU"
     }
   },
+  "staff": {
+    "contributor": 1,
+    "author": 2,
+    "editor": 3,
+    "administrator": 4
+  },
   "emptyText": ""
-  
 }

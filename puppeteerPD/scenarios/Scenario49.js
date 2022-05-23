@@ -1,8 +1,8 @@
 const puppeteer = require("puppeteer");
 const PageObjects = require("../page_objects/PageObjects");
-const Properties = require("../properties.json");
-
-const SCENARIO = "./artifacts/scenario19";
+const dataPool = require("./../dataPool");
+const dataPoolApriori = require("./../dataPool.json");
+const SCENARIO = "./artifacts/scenario49";
 
 module.exports = async () => {
   // Given a Browser with an account created
@@ -19,14 +19,15 @@ module.exports = async () => {
   await page.goto("http://localhost:2368/ghost");
   await new Promise((r) => setTimeout(r, 500));
 
-  // When I Log In and active dark mode
+  // When I Log In and invited a editor staff
   await PageObjects.LogIn(page, SCENARIO);
-  await PageObjects.ActivateDarkMode(page, SCENARIO);
+  const result = await PageObjects.InviteStaff(page, SCENARIO, faker.internet.mail(), dataPoolApriori.staff.administrator);
   
-  // Then, I shouldn see the bg dark
-  await page.goto("http://localhost:2368/ghost/#/dashboard");
+  // Then I should see it in the list of invited users.
+  await page.goto("http://localhost:2368/ghost/#/settings/staff");
   await new Promise((r) => setTimeout(r, 500));
-  await page.screenshot({ path: `${SCENARIO}/DarkModeView.jpg` });
+  await page.screenshot({ path: `${SCENARIO}/StaffList.jpg` });
 
   await browser.close();
+  return result;
 };
