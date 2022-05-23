@@ -219,7 +219,7 @@ Una vez finalizado el paso anterior se generaran 2 reportes:
 | Invite Staff | Negativo - caracteres especiales | Se realiza login, y no se envia invitacion |
 
 
-##SEMANA 7
+## SEMANA 7
 
 ## Kraken
 
