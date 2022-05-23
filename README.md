@@ -240,9 +240,12 @@ Una vez finalizado el paso anterior se generaran 2 reportes:
 ## Estrategia de pruebas
 
 ### Se realizaron pruebas haciendo uso de:
-1. Pool de datos a priori: se usaron para login, casos de valores de frontera (máximo número de caracteres soportado por un campo de entrada), pruebas con entradas vacías.
-2. Pool de datos pseudo-aleatorios: Se usaron para crear posts, pages, tags, entre otros, mediante la herramienta faker de kraken y se usaron luego para validar información del éxito o errores en la ejecución de los escenarios.
-3. Datos aleatorios: Se usaron mediante las librerías faker de javascript y faker de kraken, en la generación de posts, pages, tags, members, modificación de settings, datos que no se volvieron a requerir en la ejecución.
+1. Pool de datos a priori: se usaron para login, casos de valores de frontera (máximo número de caracteres soportado por un campo de entrada), pruebas con entradas vacías. 
+  - Para la generación de datos aleatorios para pruebas de frontera, se empleó la herramienta https://es.lipsum.com/
+  - Los datos, en el caso de Kraken, se encuentran dentro del archivo properties.json
+  - Los datos, en el caso de Puppeteer, se encuentran en el archivo datapool.json
+3. Pool de datos pseudo-aleatorios: Se usaron para crear posts, pages, tags, entre otros, mediante la herramienta faker de kraken y se usaron luego para validar información del éxito o errores en la ejecución de los escenarios.
+4. Datos aleatorios: Se usaron mediante las librerías faker de javascript y faker de kraken, en la generación de posts, pages, tags, members, modificación de settings, datos que no se volvieron a requerir en la ejecución.
 
 ### Estrategias:
 1. Se realizó por lo menos una prueba exitosa por cada funcionalidad probada.
