@@ -206,6 +206,12 @@ Se cuenta con un tutorial para la instalación de ghost según la documentación
 
 ### Ejecución
 
+Es importante resaltar que ghost por defecto pone un límite en los requests que se pueden hacer por hora desde la misma IP, dada la cantidad de pruebas que existen y que los escenarios exceden esa cantidad, se recomienda reiniciar el contador en la base de datos de ghost o eliminar la base de datos en la carpeta /content/data y reiniciar como si fuera la primera vez como se indica en el paso de "Correr las Pruebas".
+
+![LoggedIn](https://user-images.githubusercontent.com/98429879/169741791-efa909f8-391d-49bf-9acc-78528bc0f619.jpg)
+
+Idealmente se recomienda hacer este paso entre ejecuciones de Kraken y Puppeteer para evitar inconvenientes. Y reiniciar el ghost como si fuera la primera vez.
+
 #### Instalar ghost
 
 Luego de tener instalado el node y el ghost, se debe correr el siguiente comando sobre una carpeta vacía en la cual se van a ejecutar las pruebas:
