@@ -10,6 +10,17 @@ const Scenario105 = require("./scenarios/Scenario105");
 const Scenario106 = require("./scenarios/Scenario106");
 const Scenario107 = require("./scenarios/Scenario107");
 const Scenario108 = require("./scenarios/Scenario108");
+const Scenario109 = require("./scenarios/Scenario109");
+const Scenario110 = require("./scenarios/Scenario110");
+const Scenario111 = require("./scenarios/Scenario111");
+const Scenario112 = require("./scenarios/Scenario112");
+const Scenario113 = require("./scenarios/Scenario113");
+const Scenario114 = require("./scenarios/Scenario114");
+const Scenario115 = require("./scenarios/Scenario115");
+const Scenario116 = require("./scenarios/Scenario116");
+const Scenario117 = require("./scenarios/Scenario117");
+const Scenario118 = require("./scenarios/Scenario118");
+const Scenario119 = require("./scenarios/Scenario119");
 const PageObjects = require("../puppeteer/page_objects/PageObjects");
 const ScenarioMapper = require("./scenarios/ScenarioMapper");
 
@@ -72,5 +83,38 @@ const ScenarioMapper = require("./scenarios/ScenarioMapper");
   });
   await Scenario108().then(r => {
     console.log("Scenario108 (Negativo): Login + Settings + Nuevo Meta Title(Datos vacíos) result: " + r);
+  });
+  await Scenario109().then(r => {
+    console.log("Scenario109 (Positivo): Login + Settings + Nuevo Meta Description(Datos aleatorios) result: " + r);
+  });
+  await Scenario110().then(r => {
+    console.log("Scenario110 (Negativo): Login + Settings + Nuevo Meta Description(Datos vacíos) result: " + r);
+  });
+  await Scenario111().then(r => {
+    console.log("Scenario111 (Positivo): Login + Settings + Nuevo Twitter Title(Datos aleatorios) result: " + r);
+  });
+  await Scenario112().then(r => {
+    console.log("Scenario112 (Negativo): Login + Settings + Nuevo Twitter Title(Datos vacíos) result: " + r);
+  });
+  await Scenario113().then(r => {
+    console.log("Scenario113 (Negativo): Login + Settings + Nuevo Twitter Title(Datos demasiado largos) result: " + r);
+  });
+  await Scenario114().then(r => {
+    console.log("Scenario114 (Positivo): Login + Settings + Nuevo Twitter Title(Datos aleatorios) result: " + r);
+  });
+  await Scenario115().then(r => {
+    console.log("Scenario115 (Negativo): Login + Settings + Nuevo Twitter Description(Datos vacíos) result: " + r);
+  });
+  await Scenario116().then(r => {
+    console.log("Scenario116 (Negativo): Login + Settings + Nuevo Twitter Description(Datos demasiado largos) result: " + r);
+  });
+  await Scenario117().then(r => {
+    console.log("Scenario117 (Positivo): Login + Settings + Nuevo Facebook Title(Datos aleatorios) result: " + r);
+  });
+  await Scenario118().then(r => {
+    console.log("Scenario118 (Negativo): Login + Settings + Nuevo Facebook Title(Datos vacíos) result: " + r);
+  });
+  await Scenario119().then(r => {
+    console.log("Scenario119 (Negativo): Login + Settings + Nuevo Facebook Title(Datos demasiado largos) result: " + r);
   });
 })();

@@ -1,7 +1,8 @@
 const puppeteer = require("puppeteer");
 const PageObjects = require("../page_objects/PageObjects");
+const { faker } = require("@faker-js/faker");
 
-const SCENARIO = "./artifacts/scenario115";
+const SCENARIO = "./artifacts/scenario117";
 
 module.exports = async () => {
   // Given a Browser with an account created
@@ -18,20 +19,20 @@ module.exports = async () => {
   await page.goto("http://localhost:2368/ghost");
   await new Promise((r) => setTimeout(r, 500));
 
-  // When I Log In and change the twitter description...
+  // When I Log In and change the facebook title...
   await PageObjects.LogIn(page, SCENARIO);
   await page.goto("http://localhost:2368/ghost/#/settings/general");
   await new Promise((r) => setTimeout(r, 100));
   await page.evaluate(() => {
-    return document.querySelectorAll(".gh-btn")[5].click()
+    return document.querySelectorAll(".gh-btn")[6].click()
   });
   await new Promise((r) => setTimeout(r, 200));
-  const fieldID = 'twitterDescription'
+  const fieldID = 'ogTitle'
   await PageObjects.ClearInputByID(page, fieldID);
 
-  //...to something empty...
+  //...to something random...
   const fields = {
-    [`#${fieldID}`]: '',
+    [`#${fieldID}`]: "Something Always Fixed",
   };
   await PageObjects.TypeFormFields(page, fields, SCENARIO);
 
@@ -41,7 +42,7 @@ module.exports = async () => {
   });
   await new Promise((r) => setTimeout(r, 200));
 
-  // I should get a success message
+  // I should get the new facebook title
   await page.screenshot({ path: `${SCENARIO}/SettingsPage.jpg` });
   const isSaved = await page.evaluate(() => {
     return document.querySelectorAll(".gh-btn")[0].classList.contains('gh-btn-green');
