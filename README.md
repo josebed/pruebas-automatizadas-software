@@ -213,15 +213,11 @@ Una vez finalizado el paso anterior se generaran 2 reportes:
 | Invite Staff | Positivo - rol author | Se realiza login, y se envia invitacion |
 | Invite Staff | Positivo - rol editor | Se realiza login, y se envia invitacion |
 | Invite Staff | Positivo - rol administrador | Se realiza login, y se envia invitacion |
-| Invite Staff | Positivo | Se realiza login, y se envia invitacion |
-| Invite Staff | Positivo | Se realiza login, y se envia invitacion |
-| Invite Staff | Positivo | Se realiza login, y se envia invitacion |
-| Invite Staff | Positivo | Se realiza login, y se envia invitacion |
-| Invite Staff | Positivo | Se realiza login, y se envia invitacion |
-| Invite Staff | Positivo | Se realiza login, y se envia invitacion |
 | Invite Staff | Positivo - correo longitud igual a 190 | Se realiza login, y se envia invitacion |
 | Invite Staff | Positivo - correo longitud igual a 191 | Se realiza login, y se envia invitacion |
 | Invite Staff | Negativo - correo longitud igual a 192 | Se realiza login, y no se envia invitacion |
+| Invite Staff | Negativo - dominio invalido | Se realiza login, y no se envia invitacion |
+| Invite Staff | Negativo - caracteres especiales | Se realiza login, y no se envia invitacion |
 
 
 
