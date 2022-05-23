@@ -117,28 +117,22 @@ module.exports = {
     await page.click('.dropdown-menu[role="menu"] > li:nth-child(4)');
     await new Promise((r) => setTimeout(r, 500));
     await page.screenshot({ path: `${basePath}/2-ProfileMenu.jpg` });
-    console.log('profile', name, slug, mail, location);
     if(name !== undefined) {
       await page.evaluate(() =>document.querySelector("#user-name").value = '');
       await page.type("#user-name", name);
-      console.log('profile-1');
     }
     if(slug !== undefined) {
       await page.evaluate(() =>document.querySelector("#user-slug").value = '');
       await page.type("#user-slug", slug);
-      console.log('profile-2');
     }
     if(mail !== undefined) {
       await page.evaluate(() =>document.querySelector("#user-email").value = '');
-      await page.type("#user-email", mail);
-      console.log('profile-3');
+      await page.type("#user-email", mail)
     }
     if(location !== undefined) {
-      await page.evaluate(() =>document.querySelector("user-location").value = '');
-      await page.type("user-location", location);
-      console.log('profile-4');
+      await page.evaluate(() =>document.querySelector("#user-location").value = '');
+      await page.type("#user-location", location);
     }
-    console.log('profile-5')
 
     await new Promise((r) => setTimeout(r, 500));
     await page.screenshot({ path: `${basePath}/3-ProfileEditField.jpg` });
@@ -146,6 +140,16 @@ module.exports = {
     await page.click(".view-actions > button");
     await new Promise((r) => setTimeout(r, 500));
     await page.screenshot({ path: `${basePath}/4-ProfileSave.jpg` });
+
+    const errorName = await page.$(".gh-cp-member-email-name > div.max-width > p[hidden]");
+    const errorSlug = await page.$(".gh-member-note.error > p");
+    const errorMail = await page.$(".gh-cp-member-email-name > div.max-width.error > p");
+    const errorLocation = await page.$(".gh-cp-member-email-name > div.max-width.error > p");
+    const resultErrorName =  await page.evaluate(el => el !== null, errorName);  
+    const resultErrorSlug = await page.evaluate(el => el === null, errorSlug);
+    const resultErrorMail = await page.evaluate(el => el === null, errorMail);
+    const resultLocation = await page.evaluate(el => el === null, errorLocation);
+    return  await resultErrorName && resultErrorSlug && resultErrorMail && resultLocation ? "Saved": "Error"
   },
   TypeFormFields: async(page, fields, basePath) => {
     await page.screenshot({ path: `${basePath}/formPre.jpg` });

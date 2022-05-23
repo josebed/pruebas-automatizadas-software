@@ -1,8 +1,10 @@
 const puppeteer = require("puppeteer");
 const PageObjects = require("../page_objects/PageObjects");
-const Properties = require("../properties.json");
+const dataPool = require("./../dataPool");
+const dataPoolApriori = require ("./../dataPool.json");
 
-const SCENARIO = "./artifacts/scenario20";
+
+const SCENARIO = "./artifacts/scenario54";
 
 module.exports = async () => {
   // Given a Browser with an account created
@@ -21,7 +23,7 @@ module.exports = async () => {
 
   // When I Log In and edit the profile
   await PageObjects.LogIn(page, SCENARIO);
-  await PageObjects.EditProfile(page, SCENARIO);
+  const result = await PageObjects.EditProfile(page, SCENARIO, dataPool.profile.name, dataPool.profile.slug, undefined, dataPool.profile.location);
   
   // Then, I shouldn see the profile edited
   await page.click('.gh-user-avatar');
@@ -30,4 +32,5 @@ module.exports = async () => {
   await page.screenshot({ path: `${SCENARIO}/ProfileView.jpg` });
 
   await browser.close();
+  return result;
 };
