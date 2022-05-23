@@ -3,6 +3,7 @@ const PageObjects = require("../page_objects/PageObjects");
 const dataPool = require("./../dataPool");
 const dataPoolApriori = require("./../dataPool.json");
 const SCENARIO = "./artifacts/scenario49";
+const { faker } = require('@faker-js/faker');
 
 module.exports = async () => {
   // Given a Browser with an account created
@@ -21,7 +22,7 @@ module.exports = async () => {
 
   // When I Log In and invited a editor staff
   await PageObjects.LogIn(page, SCENARIO);
-  const result = await PageObjects.InviteStaff(page, SCENARIO, faker.internet.mail(), dataPoolApriori.staff.administrator);
+  const result = await PageObjects.InviteStaff(page, SCENARIO, faker.internet.email(), dataPoolApriori.staff.administrator);
   
   // Then I should see it in the list of invited users.
   await page.goto("http://localhost:2368/ghost/#/settings/staff");

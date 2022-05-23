@@ -1,4 +1,5 @@
 const puppeteer = require("puppeteer");
+const { faker } = require('@faker-js/faker');
 const PageObjects = require("../page_objects/PageObjects");
 const dataPool = require("./../dataPool");
 const dataPoolApriori = require("./../dataPool.json");
@@ -21,7 +22,7 @@ module.exports = async () => {
 
   // When I Log In and invited a editor staff
   await PageObjects.LogIn(page, SCENARIO);
-  const result = await PageObjects.InviteStaff(page, SCENARIO, faker.internet.mail(), dataPoolApriori.staff.author);
+  const result = await PageObjects.InviteStaff(page, SCENARIO, faker.internet.email(), dataPoolApriori.staff.author);
   
   // Then I should see it in the list of invited users.
   await page.goto("http://localhost:2368/ghost/#/settings/staff");
