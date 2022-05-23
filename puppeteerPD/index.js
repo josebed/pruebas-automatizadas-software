@@ -23,12 +23,12 @@ const Scenario51 = require("./scenarios/Scenario51");
 const Scenario52 = require("./scenarios/Scenario52");
 const Scenario53 = require("./scenarios/Scenario53");
 const Scenario54 = require("./scenarios/Scenario54");
-// const Scenario55 = require("./scenarios/Scenario55");
-// const Scenario56 = require("./scenarios/Scenario56");
-// const Scenario57 = require("./scenarios/Scenario57");
-// const Scenario58 = require("./scenarios/Scenario58");
-// const Scenario59 = require("./scenarios/Scenario59");
-// const Scenario60 = require("./scenarios/Scenario60");
+const Scenario55 = require("./scenarios/Scenario55");
+const Scenario56 = require("./scenarios/Scenario56");
+const Scenario57 = require("./scenarios/Scenario57");
+const Scenario58 = require("./scenarios/Scenario58");
+const Scenario59 = require("./scenarios/Scenario59");
+const Scenario60 = require("./scenarios/Scenario60");
 const Scenario101 = require("./scenarios/Scenario101");
 const Scenario102 = require("./scenarios/Scenario102");
 const Scenario103 = require("./scenarios/Scenario103");
@@ -59,8 +59,8 @@ const Scenario127 = require("./scenarios/Scenario127");
 const Scenario128 = require("./scenarios/Scenario128");
 const Scenario129 = require("./scenarios/Scenario129");
 const Scenario130 = require("./scenarios/Scenario130");
-const PageObjects = require("./page_objects/PageObjects");
-// const PageObjects = require("../puppeteer/page_objects/PageObjects");
+//const PageObjects = require("./page_objects/PageObjects");
+const PageObjects = require("../puppeteer/page_objects/PageObjects");
 const ScenarioMapper = require("./scenarios/ScenarioMapper");
 
 (async () => {
@@ -90,7 +90,6 @@ const ScenarioMapper = require("./scenarios/ScenarioMapper");
     await browser.close();
     console.log("Blog Creation Done!");
   }
-  /*
   await Scenario31().then(r => {
     console.log("Scenario31 (Positivo): Login + addNavigation(valid data) result: " + r);
   });
@@ -160,11 +159,9 @@ const ScenarioMapper = require("./scenarios/ScenarioMapper");
   await Scenario53().then(r => {
     console.log("Scenario53 (Positivo): Login + invited contributor (invalid mail) result: " + r);
   });
-  */
   await Scenario54().then(r => {
     console.log("Scenario54 (Positivo): Login + edit profile (valid data) result: " + r);
   });
-  /*
    await Scenario55().then(r => {
     console.log("Scenario55 (Positivo): Login + edit profile (valid data) result: " + r);
   });
@@ -273,5 +270,4 @@ const ScenarioMapper = require("./scenarios/ScenarioMapper");
   await Scenario130().then(r => {
     console.log("Scenario130 (Positivo): Login + Settings + Nuevo Twitter Link(Datos fijos) result: " + r);
   });
-  */
 })();

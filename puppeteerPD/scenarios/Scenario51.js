@@ -3,6 +3,7 @@ const PageObjects = require("../page_objects/PageObjects");
 const dataPool = require("./../dataPool");
 const dataPoolApriori = require("./../dataPool.json");
 const SCENARIO = "./artifacts/scenario51";
+const { faker } = require('@faker-js/faker');
 
 module.exports = async () => {
   // Given a Browser with an account created
