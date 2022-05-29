@@ -1,0 +1,12 @@
+{
+    "url": "http://localhost:2368/ghost/",
+    "headless": true,
+    "depthLevels": 2,
+    "inputValues": false,
+    "values": {"userInput": "je.bedoya@uniandes.edu.co",
+        "passwordInput": "electronica",
+        "passwordTwoInput": "electronica",
+        "nameInput": "Jose",
+        "emailInput": "je.bedoya@uniandes.com"},
+    "browsers": ["chromium"]
+}
