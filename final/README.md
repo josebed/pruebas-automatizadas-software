@@ -1,0 +1,14 @@
+## Ejecución Ripper
+
+### Software:
+1. Ghost versión 4.42
+2. Node js v 16.x
+
+### Ejecución
+1. clonar el repositorio actual.
+2. Ubicarse en la rama main.
+3. Ingresar a la carpeta final/ripper
+4. Ejecutar npm install
+5. En el archivo config.json configurar la URL, nombre de usuario y contraseña de la aplicación de ghost configuradas.
+9. Ejecutar node index.js
+10. Ver los resultados en el archivo results, bajo una carpeta con el timestamp del inicio de la ejecución, abrir con un navegador web el archivo report.html.
