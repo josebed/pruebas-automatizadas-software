@@ -2,10 +2,10 @@
 
 ## Final. Estrategia de pruebas:
 
-### Estrategias de pruebas:
+### Estrategia de pruebas:
 
 
-[Estrategias de preubas](https://uniandes-my.sharepoint.com/:w:/g/personal/je_bedoya_uniandes_edu_co/EVwKJNMHQoBAm5ZL4s-lROUBD5jVUndbVG6rbL_UlO9OmQ?e=n2yMaM).
+[Estrategia de pruebas](https://uniandes-my.sharepoint.com/:w:/g/personal/je_bedoya_uniandes_edu_co/EVwKJNMHQoBAm5ZL4s-lROUBD5jVUndbVG6rbL_UlO9OmQ?e=n2yMaM).
 
 Los pasos para ejecutar las pruebas exploratorias de la semana 8 estan en la carpeta final
 
