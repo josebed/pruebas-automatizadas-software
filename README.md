@@ -1,5 +1,9 @@
 # pruebas-automatizadas-software
 
+## Final. Estrategia de pruebas:
+
+Los pasos para ejecutar las pruebas exploratorias de la semana 8 estan en la carpeta final
+
 ## 1. Funcionalidades probadas: 
 
 | Funcionalidad | Acciones | Descripción |
