@@ -1,5 +1,8 @@
 ## Ejecución Ripper
 
+### Estrategias de pruebas:
+[Estrategias de preubas](https://uniandes-my.sharepoint.com/:w:/g/personal/je_bedoya_uniandes_edu_co/EVwKJNMHQoBAm5ZL4s-lROUBD5jVUndbVG6rbL_UlO9OmQ?e=n2yMaM).
+
 ### Software:
 1. Ghost versión 4.42
 2. Node js v 16.x
