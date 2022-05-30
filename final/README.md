@@ -1,7 +1,9 @@
-## Ejecución Ripper
+## Estrategias de pruebas:
 
-### Estrategias de pruebas:
-[Estrategias de preubas](https://uniandes-my.sharepoint.com/:w:/g/personal/je_bedoya_uniandes_edu_co/EVwKJNMHQoBAm5ZL4s-lROUBD5jVUndbVG6rbL_UlO9OmQ?e=n2yMaM).
+En el siguiente link se adjunta el documento donde se expone la estrategia de pruebas.
+[Estrategias de pruebas](https://uniandes-my.sharepoint.com/:w:/g/personal/je_bedoya_uniandes_edu_co/EVwKJNMHQoBAm5ZL4s-lROUBD5jVUndbVG6rbL_UlO9OmQ?e=n2yMaM).
+
+## Ejecución Ripper
 
 ### Software:
 1. Ghost versión 4.42
